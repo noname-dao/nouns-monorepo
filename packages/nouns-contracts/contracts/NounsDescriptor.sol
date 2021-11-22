@@ -43,8 +43,8 @@ contract NounsDescriptor is INounsDescriptor, Ownable {
     // Noun Color Palettes (Index => Hex Colors)
     mapping(uint8 => string[]) public override palettes;
 
-    // Noun Backgrounds (Hex Colors)
-    string[] public override backgrounds;
+    // Noun Backgrounds (Custom RLE)
+    bytes[] public override backgrounds;
 
     // Noun Bodies (Custom RLE)
     bytes[] public override bodies;
@@ -52,11 +52,11 @@ contract NounsDescriptor is INounsDescriptor, Ownable {
     // Noun Accessories (Custom RLE)
     bytes[] public override accessories;
 
-    // Noun Heads (Custom RLE)
-    bytes[] public override heads;
+    // Noun Faces (Custom RLE)
+    bytes[] public override faces;
 
-    // Noun Glasses (Custom RLE)
-    bytes[] public override glasses;
+    // Noun Tails (Custom RLE)
+    bytes[] public override tails;
 
     /**
      * @notice Require that the parts have not been locked.
@@ -88,17 +88,17 @@ contract NounsDescriptor is INounsDescriptor, Ownable {
     }
 
     /**
-     * @notice Get the number of available Noun `heads`.
+     * @notice Get the number of available Noun `faces`.
      */
-    function headCount() external view override returns (uint256) {
-        return heads.length;
+    function faceCount() external view override returns (uint256) {
+        return faces.length;
     }
 
     /**
-     * @notice Get the number of available Noun `glasses`.
+     * @notice Get the number of available Noun `tails`.
      */
-    function glassesCount() external view override returns (uint256) {
-        return glasses.length;
+    function tailCount() external view override returns (uint256) {
+        return tails.length;
     }
 
     /**
@@ -116,7 +116,7 @@ contract NounsDescriptor is INounsDescriptor, Ownable {
      * @notice Batch add Noun backgrounds.
      * @dev This function can only be called by the owner when not locked.
      */
-    function addManyBackgrounds(string[] calldata _backgrounds) external override onlyOwner whenPartsNotLocked {
+    function addManyBackgrounds(bytes[] calldata _backgrounds) external override onlyOwner whenPartsNotLocked {
         for (uint256 i = 0; i < _backgrounds.length; i++) {
             _addBackground(_backgrounds[i]);
         }
@@ -143,22 +143,22 @@ contract NounsDescriptor is INounsDescriptor, Ownable {
     }
 
     /**
-     * @notice Batch add Noun heads.
+     * @notice Batch add Noun faces.
      * @dev This function can only be called by the owner when not locked.
      */
-    function addManyHeads(bytes[] calldata _heads) external override onlyOwner whenPartsNotLocked {
-        for (uint256 i = 0; i < _heads.length; i++) {
-            _addHead(_heads[i]);
+    function addManyFaces(bytes[] calldata _faces) external override onlyOwner whenPartsNotLocked {
+        for (uint256 i = 0; i < _faces.length; i++) {
+            _addFace(_faces[i]);
         }
     }
 
     /**
-     * @notice Batch add Noun glasses.
+     * @notice Batch add Noun tails.
      * @dev This function can only be called by the owner when not locked.
      */
-    function addManyGlasses(bytes[] calldata _glasses) external override onlyOwner whenPartsNotLocked {
-        for (uint256 i = 0; i < _glasses.length; i++) {
-            _addGlasses(_glasses[i]);
+    function addManyTails(bytes[] calldata _tails) external override onlyOwner whenPartsNotLocked {
+        for (uint256 i = 0; i < _tails.length; i++) {
+            _addTail(_tails[i]);
         }
     }
 
@@ -175,7 +175,7 @@ contract NounsDescriptor is INounsDescriptor, Ownable {
      * @notice Add a Noun background.
      * @dev This function can only be called by the owner when not locked.
      */
-    function addBackground(string calldata _background) external override onlyOwner whenPartsNotLocked {
+    function addBackground(bytes calldata _background) external override onlyOwner whenPartsNotLocked {
         _addBackground(_background);
     }
 
@@ -196,19 +196,19 @@ contract NounsDescriptor is INounsDescriptor, Ownable {
     }
 
     /**
-     * @notice Add a Noun head.
+     * @notice Add a Noun face.
      * @dev This function can only be called by the owner when not locked.
      */
-    function addHead(bytes calldata _head) external override onlyOwner whenPartsNotLocked {
-        _addHead(_head);
+    function addFace(bytes calldata _face) external override onlyOwner whenPartsNotLocked {
+        _addFace(_face);
     }
 
     /**
-     * @notice Add Noun glasses.
+     * @notice Add Noun tail.
      * @dev This function can only be called by the owner when not locked.
      */
-    function addGlasses(bytes calldata _glasses) external override onlyOwner whenPartsNotLocked {
-        _addGlasses(_glasses);
+    function addTail(bytes calldata _tail) external override onlyOwner whenPartsNotLocked {
+        _addTail(_tail);
     }
 
     /**
@@ -261,8 +261,8 @@ contract NounsDescriptor is INounsDescriptor, Ownable {
      */
     function dataURI(uint256 tokenId, INounsSeeder.Seed memory seed) public view override returns (string memory) {
         string memory nounId = tokenId.toString();
-        string memory name = string(abi.encodePacked('Noun ', nounId));
-        string memory description = string(abi.encodePacked('Noun ', nounId, ' is a member of the Nouns DAO'));
+        string memory name = string(abi.encodePacked('Noname ', nounId));
+        string memory description = string(abi.encodePacked('Noname ', nounId, ' is a member of the Noname DAO'));
 
         return genericDataURI(name, description, seed);
     }
@@ -279,7 +279,7 @@ contract NounsDescriptor is INounsDescriptor, Ownable {
             name: name,
             description: description,
             parts: _getPartsForSeed(seed),
-            background: backgrounds[seed.background]
+            background: 'f6f7f9'
         });
         return NFTDescriptor.constructTokenURI(params, palettes);
     }
@@ -290,7 +290,7 @@ contract NounsDescriptor is INounsDescriptor, Ownable {
     function generateSVGImage(INounsSeeder.Seed memory seed) external view override returns (string memory) {
         MultiPartRLEToSVG.SVGParams memory params = MultiPartRLEToSVG.SVGParams({
             parts: _getPartsForSeed(seed),
-            background: backgrounds[seed.background]
+            background: 'f6f7f9'
         });
         return NFTDescriptor.generateSVGImage(params, palettes);
     }
@@ -305,7 +305,7 @@ contract NounsDescriptor is INounsDescriptor, Ownable {
     /**
      * @notice Add a Noun background.
      */
-    function _addBackground(string calldata _background) internal {
+    function _addBackground(bytes calldata _background) internal {
         backgrounds.push(_background);
     }
 
@@ -324,28 +324,29 @@ contract NounsDescriptor is INounsDescriptor, Ownable {
     }
 
     /**
-     * @notice Add a Noun head.
+     * @notice Add a Noun face.
      */
-    function _addHead(bytes calldata _head) internal {
-        heads.push(_head);
+    function _addFace(bytes calldata _face) internal {
+        faces.push(_face);
     }
 
     /**
-     * @notice Add Noun glasses.
+     * @notice Add Noun tail.
      */
-    function _addGlasses(bytes calldata _glasses) internal {
-        glasses.push(_glasses);
+    function _addTail(bytes calldata _tail) internal {
+        tails.push(_tail);
     }
 
     /**
      * @notice Get all Noun parts for the passed `seed`.
      */
     function _getPartsForSeed(INounsSeeder.Seed memory seed) internal view returns (bytes[] memory) {
-        bytes[] memory _parts = new bytes[](4);
-        _parts[0] = bodies[seed.body];
-        _parts[1] = accessories[seed.accessory];
-        _parts[2] = heads[seed.head];
-        _parts[3] = glasses[seed.glasses];
+        bytes[] memory _parts = new bytes[](5);
+        _parts[0] = backgrounds[seed.background];
+        _parts[1] = bodies[seed.body];
+        _parts[2] = tails[seed.tail];
+        _parts[3] = faces[seed.face];
+        _parts[4] = accessories[seed.accessory];
         return _parts;
     }
 }

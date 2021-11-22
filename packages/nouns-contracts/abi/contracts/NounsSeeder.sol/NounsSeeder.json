@@ -33,12 +33,12 @@
           },
           {
             "internalType": "uint48",
-            "name": "head",
+            "name": "face",
             "type": "uint48"
           },
           {
             "internalType": "uint48",
-            "name": "glasses",
+            "name": "tail",
             "type": "uint48"
           }
         ],

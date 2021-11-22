@@ -1,7 +1,7 @@
 import { NounSeed, NounData } from './types';
 import { images, bgcolors } from './image-data.json';
 
-const { bodies, accessories, heads, glasses } = images;
+const { backgrounds, bodies, accessories, faces, tails } = images;
 
 /**
  * Get encoded part and background information using a Noun seed
@@ -10,12 +10,13 @@ const { bodies, accessories, heads, glasses } = images;
 export const getNounData = (seed: NounSeed): NounData => {
   return {
     parts: [
+      backgrounds[seed.background],
       bodies[seed.body],
+      tails[seed.tail],
+      faces[seed.face],
       accessories[seed.accessory],
-      heads[seed.head],
-      glasses[seed.glasses],
     ],
-    background: bgcolors[seed.background],
+    background: bgcolors[0],
   };
 };
 
@@ -25,10 +26,10 @@ export const getNounData = (seed: NounSeed): NounData => {
  */
 export const getRandomNounSeed = (): NounSeed => {
   return {
-    background: Math.floor(Math.random() * bgcolors.length),
+    background: Math.floor(Math.random() * backgrounds.length),
     body: Math.floor(Math.random() * bodies.length),
     accessory: Math.floor(Math.random() * accessories.length),
-    head: Math.floor(Math.random() * heads.length),
-    glasses: Math.floor(Math.random() * glasses.length),
+    face: Math.floor(Math.random() * faces.length),
+    tail: Math.floor(Math.random() * tails.length),
   };
 };

@@ -24,8 +24,8 @@ interface INounsSeeder {
         uint48 background;
         uint48 body;
         uint48 accessory;
-        uint48 head;
-        uint48 glasses;
+        uint48 face;
+        uint48 tail;
     }
 
     function generateSeed(uint256 nounId, INounsDescriptor descriptor) external view returns (Seed memory);

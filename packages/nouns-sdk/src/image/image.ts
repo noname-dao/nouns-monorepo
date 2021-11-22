@@ -10,7 +10,7 @@ export class Image {
   private _width: number;
   private _height: number;
   private _rows: ImageRows = {};
-  private _bounds: ImageBounds = { top: 0, bottom: 0, left: 0, right: 0 };
+  private _bounds: ImageBounds = { top: -1, bottom: 0, left: 0, right: 0 };
   private _rle: string | undefined;
 
   /**
@@ -94,8 +94,8 @@ export class Image {
     // Set the left and right bounds. Return early if empty
     const rowCount = Object.keys(this._rows).length;
     if (rowCount) {
-      this._bounds.left = Math.min(...Object.values(this._rows).map(r => r.bounds.left));
-      this._bounds.right = Math.max(...Object.values(this._rows).map(r => r.bounds.right));
+      this._bounds.left = Math.min(...Object.values(this._rows).map(r => r.bounds.left - 1));
+      this._bounds.right = Math.max(...Object.values(this._rows).map(r => r.bounds.right + 1));
 
       // Exit early if image is empty
       const [rect] = this._rows[0]?.rects || [];
@@ -143,11 +143,11 @@ export class Image {
     const { rects } = this._rows[y];
 
     // Shift top bound to `y` if row is not empty and top bound is 0
-    if (!this.isEmptyRow(rects[0]) && this._bounds.top === 0) {
+    if (!this.isEmptyRow(rects[0]) && this._bounds.top === -1) {
       this._bounds.top = y;
     }
 
-    if (this._bounds.top !== 0) {
+    if (this._bounds.top !== -1) {
       // Set bottom bound to `y` if row is empty or we're on the last row.
       // Otherwise, reset the bottom bound
       if (this.isEmptyRow(rects[0])) {

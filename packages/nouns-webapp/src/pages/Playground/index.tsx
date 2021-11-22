@@ -54,6 +54,8 @@ const Playground: React.FC = () => {
       for (let i = 0; i < amount; i++) {
         const seed = { ...getRandomNounSeed(), ...modSeed };
         const { parts, background } = getNounData(seed);
+        console.log(seed);
+        console.log(modSeed);
         const svg = buildSVG(parts, ImageData.palette, background);
         setNounSvgs(prev => {
           return prev ? [svg, ...prev] : [svg];
@@ -64,9 +66,8 @@ const Playground: React.FC = () => {
   );
 
   useEffect(() => {
-    const traitTitles = ['background', 'body', 'accessory', 'head', 'glasses'];
+    const traitTitles = ['background', 'body', 'accessory', 'face', 'tail'];
     const traitNames = [
-      ['cool', 'warm'],
       ...Object.values(ImageData.images).map(i => {
         return i.map(imageData => imageData.filename);
       }),

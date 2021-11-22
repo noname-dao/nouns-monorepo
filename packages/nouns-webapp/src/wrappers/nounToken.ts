@@ -13,8 +13,8 @@ export interface INounSeed {
   accessory: number;
   background: number;
   body: number;
-  glasses: number;
-  head: number;
+  tail: number;
+  face: number;
 }
 
 const abi = new utils.Interface(NounsTokenABI);

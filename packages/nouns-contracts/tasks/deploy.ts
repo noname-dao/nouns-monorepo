@@ -180,8 +180,9 @@ task('deploy', 'Deploys NFTDescriptor, NounsDescriptor, NounsSeeder, and NounsTo
 
       console.log('Deploying...');
 
+      const _args = (contract.args?.map(a => (typeof a === 'function' ? a() : a)) ?? []);
       const deployedContract = await factory.deploy(
-        ...(contract.args?.map(a => (typeof a === 'function' ? a() : a)) ?? []),
+        ..._args,
         {
           gasPrice,
         },
@@ -193,6 +194,7 @@ task('deploy', 'Deploys NFTDescriptor, NounsDescriptor, NounsSeeder, and NounsTo
 
       contracts[name as ContractName].address = deployedContract.address;
 
+      console.log(`${_args}`);
       console.log(`${name} contract deployed to ${deployedContract.address}`);
     }
 
