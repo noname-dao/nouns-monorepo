@@ -53,13 +53,13 @@ const NounModal: React.FC<{ onDismiss: () => void; svg: string }> = props => {
           {png && (
             <Noun
               imgPath={png}
-              alt="noun"
+              alt="noname"
               className={classes.nounImg}
               wrapperClassName={classes.nounWrapper}
             />
           )}
           <div className={classes.displayNounFooter}>
-            <span>Use this Noun as your profile picture!</span>
+            <span>Use this Noname as your profile picture!</span>
             {!isMobile && png && (
               <Button
                 onClick={() => {

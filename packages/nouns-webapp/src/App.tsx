@@ -61,8 +61,8 @@ function App() {
           <Route exact path="/playground" component={Playground} />
           <Route
             exact
-            path="/noun/:id"
-            render={props => <ProfilePage nounId={Number(props.match.params.id)} />}
+            path="/noname/:id"
+            render={props => <ProfilePage nonameId={Number(props.match.params.id)} />}
           />
           <Route component={NotFoundPage} />
         </Switch>

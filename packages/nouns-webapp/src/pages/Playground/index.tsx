@@ -14,24 +14,24 @@ interface Trait {
 
 const nounsProtocolLink = (
   <Link
-    text="Nouns Protocol"
-    url="https://www.notion.so/Noun-Protocol-32e4f0bf74fe433e927e2ea35e52a507"
+    text="Noname Protocol"
+    url="https://nonamedao.com"
     leavesPage={true}
   />
 );
 
 const nounsAssetsLink = (
   <Link
-    text="nouns-assets"
-    url="https://github.com/nounsDAO/nouns-monorepo/tree/master/packages/nouns-assets"
+    text="Noname Assets"
+    url="https://github.com/noname-dao/nouns-monorepo/tree/master/packages/nouns-assets"
     leavesPage={true}
   />
 );
 
 const nounsSDKLink = (
   <Link
-    text="nouns-sdk"
-    url="https://github.com/nounsDAO/nouns-monorepo/tree/master/packages/nouns-sdk"
+    text="SDK"
+    url="https://github.com/noname-dao/nouns-monorepo/tree/master/packages/nouns-sdk"
     leavesPage={true}
   />
 );
@@ -126,8 +126,8 @@ const Playground: React.FC = () => {
             <span>Explore</span>
             <h1>Playground</h1>
             <p>
-              The playground was built using the {nounsProtocolLink}. Noun's traits are determined
-              by the Noun Seed. The seed was generated using {nounsAssetsLink} and rendered using
+              The playground was built using the {nounsProtocolLink}. Noname's traits are determined
+              by the Noname Seed. The seed was generated using {nounsAssetsLink} and rendered using
               the {nounsSDKLink}.
             </p>
           </Col>
@@ -140,7 +140,7 @@ const Playground: React.FC = () => {
               }}
               className={classes.generateBtn}
             >
-              Generate Nouns
+              Generate Nonames
             </Button>
             {traits &&
               traits.map((trait, index) => {
@@ -168,7 +168,7 @@ const Playground: React.FC = () => {
               })}
             <p className={classes.nounYearsFooter}>
               You've generated {nounSvgs ? (nounSvgs.length / 365).toFixed(2) : '0'} years worth of
-              Nouns
+              Nonames
             </p>
           </Col>
           <Col lg={9}>

@@ -13,11 +13,11 @@ import NounInfoCard from '../../components/NounInfoCard';
 import ProfileActivityFeed from '../../components/ProfileActivityFeed';
 
 interface ProfilePageProps {
-  nounId: number;
+  nonameId: number;
 }
 
 const ProfilePage: React.FC<ProfilePageProps> = props => {
-  const { nounId } = props;
+  const { nonameId } = props;
 
   const dispatch = useAppDispatch();
   const lastAuctionNounId = useAppSelector(state => state.onDisplayAuction.lastAuctionNounId);
@@ -31,7 +31,7 @@ const ProfilePage: React.FC<ProfilePageProps> = props => {
     return <></>;
   }
 
-  const nounIdForDisplay = Math.min(nounId, lastAuctionNounId);
+  const nounIdForDisplay = Math.min(nonameId, lastAuctionNounId);
 
   const nounContent = (
     <StandaloneNounWithSeed

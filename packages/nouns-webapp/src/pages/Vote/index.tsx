@@ -262,7 +262,7 @@ const VotePage = ({
           >
             {hasVoted
               ? 'Thank you for your vote!'
-              : `Only NOUN votes that were self delegated or delegated to another address before block ${proposal.createdBlock} are eligible for voting.`}
+              : `Only NONAME votes that were self delegated or delegated to another address before block ${proposal.createdBlock} are eligible for voting.`}
           </Alert>
         )}
         {showVotingButtons ? (
