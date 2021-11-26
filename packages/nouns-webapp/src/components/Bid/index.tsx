@@ -100,7 +100,7 @@ const Bid: React.FC<{
         title: 'Insufficient bid amount 🤏',
         message: `Please place a bid higher than or equal to the minimum bid amount of ${minBidEth(
           minBid,
-        )} ETH.`,
+        )} MATIC.`,
       });
       setBidInput(minBidEth(minBid));
       return;
@@ -229,7 +229,7 @@ const Bid: React.FC<{
   return (
     <>
       {!auctionEnded && (
-        <p className={classes.minBidCopy}>{`Minimum bid: ${minBidEth(minBid)} ETH`}</p>
+        <p className={classes.minBidCopy}>{`Minimum bid: ${minBidEth(minBid)} MATIC`}</p>
       )}
       <InputGroup>
         {!auctionEnded && (
@@ -244,7 +244,7 @@ const Bid: React.FC<{
               ref={bidInputRef}
               value={bidInput}
             />
-            <span className={classes.customPlaceholder}>ETH</span>
+            <span className={classes.customPlaceholder}>MATIC</span>
           </>
         )}
         <Button

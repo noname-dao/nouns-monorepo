@@ -2,6 +2,7 @@ import { useAppSelector } from '../../hooks';
 import ShortAddress from '../ShortAddress';
 import classes from './NavBar.module.css';
 import logo from '../../assets/logo.png';
+import maticLogo from '../../assets/matic-logo.svg';
 import { useState } from 'react';
 import { useEtherBalance, useEthers } from '@usedapp/core';
 import WalletConnectModal from '../WalletConnectModal';
@@ -104,7 +105,14 @@ const NavBar = () => {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  TREASURY Ξ {Number(utils.formatEther(treasuryBalance)).toFixed(0)}
+                  TREASURY <img
+                    src={maticLogo}
+                    width="15"
+                    height="15"
+                    className="d-inline-block mb-1 ms-2 me-1 align-middle"
+                    alt="Matic Logo"
+                  />
+                  {Number(utils.formatEther(treasuryBalance)).toFixed(0)}
                 </Nav.Link>
               )}
             </Nav.Item>

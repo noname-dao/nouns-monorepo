@@ -213,7 +213,7 @@ const ProposalTransactionFormModal = ({
           />
         </Step>
         <Step step={1}>
-          <label htmlFor="eth-value">Value in ETH (Optional)</label>
+          <label htmlFor="eth-value">Value in MATIC (Optional)</label>
           <FormControl value={value} id="eth-value" onChange={e => setValue(e.target.value)} />
         </Step>
         <Step step={2}>
@@ -280,7 +280,7 @@ const ProposalTransactionFormModal = ({
             <Col sm="3">
               <b>Value</b>
             </Col>
-            <Col sm="9">{value ? `${value} ETH` : 'None'}</Col>
+            <Col sm="9">{value ? `${value} MATIC` : 'None'}</Col>
           </Row>
           <Row>
             <Col sm="3">
