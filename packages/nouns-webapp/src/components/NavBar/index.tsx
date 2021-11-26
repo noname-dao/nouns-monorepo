@@ -1,7 +1,7 @@
 import { useAppSelector } from '../../hooks';
 import ShortAddress from '../ShortAddress';
 import classes from './NavBar.module.css';
-import logo from '../../assets/logo.svg';
+import logo from '../../assets/logo.png';
 import { useState } from 'react';
 import { useEtherBalance, useEthers } from '@usedapp/core';
 import WalletConnectModal from '../WalletConnectModal';
@@ -69,7 +69,7 @@ const NavBar = () => {
 
   const useStateBg =
     history.location.pathname === '/' ||
-    history.location.pathname.includes('/noun') ||
+    history.location.pathname.includes('/noname') ||
     history.location.pathname.includes('/auction');
 
   return (
@@ -85,7 +85,7 @@ const NavBar = () => {
               width="85"
               height="85"
               className="d-inline-block align-middle"
-              alt="Nouns DAO logo"
+              alt="Noname DAO logo"
             />
           </Navbar.Brand>
           {Number(CHAIN_ID) !== 1 && (
