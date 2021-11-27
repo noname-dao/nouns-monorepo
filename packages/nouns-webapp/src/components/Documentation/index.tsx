@@ -58,7 +58,7 @@ const Documentation = () => {
                 <li>1 noname trustlessly auctioned every 24 hours, forever</li>
                 <li>100% of noname auction proceeds are trustlessly sent to Noname DAO treasury</li>
                 <li>settlement of one auction kicks off the next</li>
-                <li>all nonames are members of Noname DAO</li>
+                <li>all nonamers are members of Noname DAO</li>
                 <li>Noname DAO uses a fork of {compoundGovLink}</li>
                 <li>1 noname = 1 vote</li>
                 <li>treasury is controlled exclusively by nonames via governance</li>
@@ -233,12 +233,12 @@ const Documentation = () => {
                 Because 100% of noname auction proceeds are sent to Noname DAO, Founders have chosen to
                 compensate themselves with nonames. Every 10th noname for the first 5 years of the
                 project (noname ids #0, #10, #20, #30 and so on) will be automatically sent to the
-                Nonamers' multisig to be vested and shared among the founding members of the
+                Founders' multisig to be vested and shared among the founding members of the
                 project.
               </p>
               <p>
-                Nonamer distributions don't interfere with the cadence of 24 hour auctions. Nonames
-                are sent directly to the Nonamers' Multisig, and auctions continue on schedule with
+                Founders distributions don't interfere with the cadence of 24 hour auctions. Nonames
+                are sent directly to the Founders' Multisig, and auctions continue on schedule with
                 the next available noname ID.
               </p>
             </Accordion.Body>
