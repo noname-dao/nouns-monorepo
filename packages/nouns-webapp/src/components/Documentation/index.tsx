@@ -229,6 +229,19 @@ const Documentation = () => {
               </p>
             </Accordion.Body>
           </Accordion.Item>
+          <Accordion.Item eventKey="8" className={classes.accordionItem}>
+            <Accordion.Header className={classes.accordionHeader}>
+              How to get MATIC
+            </Accordion.Header>
+            <Accordion.Body>
+              <p>
+                You can get MATIC from the most of crypto exchanges like Binance or Bitfinex.
+              </p>
+              <p>
+                Also, there are more ways well described in <a href="https://blog.hdks.org/Get-MATIC-From-ETH/" target="_blank" rel="noreferrer">this detailed article</a>.
+              </p>
+            </Accordion.Body>
+          </Accordion.Item>
         </Accordion>
       </Col>
     </Section>
