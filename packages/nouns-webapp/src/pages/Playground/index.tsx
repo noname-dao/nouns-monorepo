@@ -14,7 +14,7 @@ interface Trait {
 
 const nounsProtocolLink = (
   <Link
-    text="Noname Protocol"
+    text="Nouns Protocol for Nonames"
     url="https://nonamedao.com"
     leavesPage={true}
   />
