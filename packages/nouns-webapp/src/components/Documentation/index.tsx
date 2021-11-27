@@ -185,7 +185,7 @@ const Documentation = () => {
             </Accordion.Header>
             <Accordion.Body>
               <p>
-                Founders are the group of ten builders that initiated Nonames.
+                Founders are the group of five builders that initiated Nonames.
               </p>
               {/* <ul>
                 <li>
