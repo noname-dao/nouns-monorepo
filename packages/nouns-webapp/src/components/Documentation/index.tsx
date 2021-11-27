@@ -51,7 +51,7 @@ const Documentation = () => {
                 <li>artwork is generative and stored directly on-chain (not IPFS)</li>
                 <li>no explicit rules for attribute scarcity, all nonames are equally rare</li>
                 <li>
-                  'Nonamers' receive rewards in the form of nonames (10% of supply for first 5 years)
+                  Founders receive rewards in the form of nonames (10% of supply for first 5 years)
                 </li>
               </ul>
             </Accordion.Body>
@@ -95,13 +95,13 @@ const Documentation = () => {
             </Accordion.Header>
             <Accordion.Body>
               <p>
-                In addition to the precautions taken by Compound Governance, Nonamers have given
+                In addition to the precautions taken by Compound Governance, Founders have given
                 themselves a special veto right to ensure that no malicious proposals can be passed
                 while the noname supply is low. This veto right will only be used if an obviously
                 harmful governance proposal has been passed, and is intended as a last resort.
               </p>
               <p>
-                Nonamers will proveably revoke this veto right when they deem it safe to do so. This
+                Founders will proveably revoke this veto right when they deem it safe to do so. This
                 decision will be based on a healthy noname distribution and a community that is
                 engaged in the governance process.
               </p>
@@ -167,11 +167,11 @@ const Documentation = () => {
           </Accordion.Item>
           <Accordion.Item eventKey="7" className={classes.accordionItem}>
             <Accordion.Header className={classes.accordionHeader}>
-              Nonamers' Reward
+              Founders' Reward
             </Accordion.Header>
             <Accordion.Body>
               <p>
-                'Nonamers' are the group of ten builders that initiated Nonames.
+                Founders are the group of ten builders that initiated Nonames.
               </p>
               {/* <ul>
                 <li>
@@ -216,7 +216,7 @@ const Documentation = () => {
                 </li>
               </ul> */}
               <p>
-                Because 100% of noname auction proceeds are sent to Noname DAO, Nonamers have chosen to
+                Because 100% of noname auction proceeds are sent to Noname DAO, Founders have chosen to
                 compensate themselves with nonames. Every 10th noname for the first 5 years of the
                 project (noname ids #0, #10, #20, #30 and so on) will be automatically sent to the
                 Nonamers' multisig to be vested and shared among the founding members of the
