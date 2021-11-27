@@ -38,6 +38,19 @@ const Documentation = () => {
         </div>
         <Accordion flush>
           <Accordion.Item eventKey="0" className={classes.accordionItem}>
+            <Accordion.Header className={classes.accordionHeader}>
+              How to get {CURRENCY_SYMBOL}
+            </Accordion.Header>
+            <Accordion.Body>
+              <p>
+                You can get {CURRENCY_SYMBOL} from the most of crypto exchanges like Binance or Bitfinex.
+              </p>
+              <p>
+                Also, there are more ways well described in <a href="https://blog.hdks.org/Get-MATIC-From-ETH/" target="_blank" rel="noreferrer">this detailed article</a>.
+              </p>
+            </Accordion.Body>
+          </Accordion.Item>
+          <Accordion.Item eventKey="1" className={classes.accordionItem}>
             <Accordion.Header className={classes.accordionHeader}>Summary</Accordion.Header>
             <Accordion.Body>
               <ul>
@@ -58,7 +71,7 @@ const Documentation = () => {
             </Accordion.Body>
           </Accordion.Item>
 
-          <Accordion.Item eventKey="1" className={classes.accordionItem}>
+          <Accordion.Item eventKey="2" className={classes.accordionItem}>
             <Accordion.Header className={classes.accordionHeader}>Daily Auctions</Accordion.Header>
             <Accordion.Body>
               <p>
@@ -79,7 +92,7 @@ const Documentation = () => {
               </p>
             </Accordion.Body>
           </Accordion.Item>
-          <Accordion.Item eventKey="2" className={classes.accordionItem}>
+          <Accordion.Item eventKey="3" className={classes.accordionItem}>
             <Accordion.Header className={classes.accordionHeader}>Noname DAO</Accordion.Header>
             <Accordion.Body>
               Noname DAO utilizes a fork of {compoundGovLink} and is the main governing body of the
@@ -90,7 +103,7 @@ const Documentation = () => {
               else as long as you own your noname.
             </Accordion.Body>
           </Accordion.Item>
-          <Accordion.Item eventKey="3" className={classes.accordionItem}>
+          <Accordion.Item eventKey="4" className={classes.accordionItem}>
             <Accordion.Header className={classes.accordionHeader}>
               Governance ‘Slow Start’
             </Accordion.Header>
@@ -108,7 +121,7 @@ const Documentation = () => {
               </p>
             </Accordion.Body>
           </Accordion.Item>
-          <Accordion.Item eventKey="4" className={classes.accordionItem}>
+          <Accordion.Item eventKey="5" className={classes.accordionItem}>
             <Accordion.Header className={classes.accordionHeader}>Noname Traits</Accordion.Header>
             <Accordion.Body>
               <p>
@@ -126,7 +139,7 @@ const Documentation = () => {
               You can experiment with off-chain noname generation at the {playgroundLink}.
             </Accordion.Body>
           </Accordion.Item>
-          <Accordion.Item eventKey="5" className={classes.accordionItem}>
+          <Accordion.Item eventKey="6" className={classes.accordionItem}>
             <Accordion.Header className={classes.accordionHeader}>
               On-Chain Artwork
             </Accordion.Header>
@@ -145,7 +158,7 @@ const Documentation = () => {
               </p>
             </Accordion.Body>
           </Accordion.Item>
-          <Accordion.Item eventKey="6" className={classes.accordionItem}>
+          <Accordion.Item eventKey="7" className={classes.accordionItem}>
             <Accordion.Header className={classes.accordionHeader}>
               Noname Seeder Contract
             </Accordion.Header>
@@ -166,7 +179,7 @@ const Documentation = () => {
               </p>
             </Accordion.Body>
           </Accordion.Item>
-          <Accordion.Item eventKey="7" className={classes.accordionItem}>
+          <Accordion.Item eventKey="8" className={classes.accordionItem}>
             <Accordion.Header className={classes.accordionHeader}>
               Founders' Reward
             </Accordion.Header>
@@ -227,19 +240,6 @@ const Documentation = () => {
                 Nonamer distributions don't interfere with the cadence of 24 hour auctions. Nonames
                 are sent directly to the Nonamers' Multisig, and auctions continue on schedule with
                 the next available noname ID.
-              </p>
-            </Accordion.Body>
-          </Accordion.Item>
-          <Accordion.Item eventKey="8" className={classes.accordionItem}>
-            <Accordion.Header className={classes.accordionHeader}>
-              How to get {CURRENCY_SYMBOL}
-            </Accordion.Header>
-            <Accordion.Body>
-              <p>
-                You can get {CURRENCY_SYMBOL} from the most of crypto exchanges like Binance or Bitfinex.
-              </p>
-              <p>
-                Also, there are more ways well described in <a href="https://blog.hdks.org/Get-MATIC-From-ETH/" target="_blank" rel="noreferrer">this detailed article</a>.
               </p>
             </Accordion.Body>
           </Accordion.Item>
