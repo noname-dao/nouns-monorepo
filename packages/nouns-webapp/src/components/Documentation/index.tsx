@@ -24,7 +24,7 @@ const Documentation = () => {
     <Section fullWidth={false}>
       <Col lg={{ span: 10, offset: 1 }}>
         <div className={classes.headerWrapper}>
-          <h1>WTF?</h1>
+          <h1>What is Noname DAO?</h1>
           <p>
             Nonames are an experimental attempt to improve the formation of on-chain avatar
             communities. While projects such as {cryptopunksLink} have attempted to bootstrap
