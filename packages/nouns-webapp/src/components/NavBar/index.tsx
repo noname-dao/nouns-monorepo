@@ -106,9 +106,10 @@ const NavBar = () => {
                 >
                   TREASURY <img
                     src={CURRENCY_LOGO}
-                    width="15"
-                    height="15"
-                    className="d-inline-block mb-1 ms-2 me-1 align-middle"
+                    width="14"
+                    height="14"
+                    style={{marginBottom: "2px", marginRight: "3px"}}
+                    className="d-inline-block ms-2 align-middle"
                     alt={`${CURRENCY_SYMBOL} logo`}
                   />
                   {Number(utils.formatEther(treasuryBalance)).toFixed(0)}
