@@ -46,7 +46,7 @@ const Documentation = () => {
                 You can get {CURRENCY_SYMBOL} from the most of crypto exchanges like Binance or Bitfinex.
               </p>
               <p>
-                Also, there are more ways well described in <a href="https://blog.hdks.org/Get-MATIC-From-ETH/" target="_blank" rel="noreferrer">this detailed article</a>.
+                Also, there are more ways well described in <a href="https://youtu.be/tFK8a28gJZ0" target="_blank" rel="noreferrer">this detailed video</a>.
               </p>
             </Accordion.Body>
           </Accordion.Item>
