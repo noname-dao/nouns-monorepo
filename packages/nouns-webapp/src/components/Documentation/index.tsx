@@ -3,6 +3,7 @@ import { Col } from 'react-bootstrap';
 import classes from './Documentation.module.css';
 import Accordion from 'react-bootstrap/Accordion';
 import Link from '../Link';
+import { CURRENCY_SYMBOL } from '../../config';
 
 const Documentation = () => {
   const cryptopunksLink = (
@@ -63,7 +64,7 @@ const Documentation = () => {
               <p>
                 The Noname Auction Contract will act as a self-sufficient noname generation and
                 distribution mechanism, auctioning one noname every 24 hours, forever. 100% of auction
-                proceeds (MATIC) are automatically deposited in the Noname DAO treasury, where they are
+                proceeds ({CURRENCY_SYMBOL}) are automatically deposited in the Noname DAO treasury, where they are
                 governed by noname owners.
               </p>
 
@@ -82,7 +83,7 @@ const Documentation = () => {
             <Accordion.Header className={classes.accordionHeader}>Noname DAO</Accordion.Header>
             <Accordion.Body>
               Noname DAO utilizes a fork of {compoundGovLink} and is the main governing body of the
-              Noname ecosystem. The Noname DAO treasury receives 100% of MATIC proceeds from daily noname
+              Noname ecosystem. The Noname DAO treasury receives 100% of {CURRENCY_SYMBOL} proceeds from daily noname
               auctions. Each noname is an irrevocable member of Noname DAO and entitled to one vote in
               all governance matters. Noname votes are non-transferable (if you sell your noname the
               vote goes with it) but delegatable, which means you can assign your vote to someone
@@ -231,11 +232,11 @@ const Documentation = () => {
           </Accordion.Item>
           <Accordion.Item eventKey="8" className={classes.accordionItem}>
             <Accordion.Header className={classes.accordionHeader}>
-              How to get MATIC
+              How to get {CURRENCY_SYMBOL}
             </Accordion.Header>
             <Accordion.Body>
               <p>
-                You can get MATIC from the most of crypto exchanges like Binance or Bitfinex.
+                You can get {CURRENCY_SYMBOL} from the most of crypto exchanges like Binance or Bitfinex.
               </p>
               <p>
                 Also, there are more ways well described in <a href="https://blog.hdks.org/Get-MATIC-From-ETH/" target="_blank" rel="noreferrer">this detailed article</a>.

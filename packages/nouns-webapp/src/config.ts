@@ -1,5 +1,6 @@
 import { ContractAddresses, getContractAddressesForChainOrThrow } from '@nouns/sdk';
 import { ChainId } from '@usedapp/core';
+import maticLogo from "./assets/matic-logo.svg";
 
 interface AppConfig {
   jsonRpcUri: string;
@@ -7,6 +8,9 @@ interface AppConfig {
   subgraphApiUri: string;
   enableHistory: boolean;
 }
+
+export const CURRENCY_SYMBOL = "MATIC";
+export const CURRENCY_LOGO = maticLogo;
 
 type SupportedChains = ChainId.Rinkeby | ChainId.Mainnet | ChainId.Hardhat;
 

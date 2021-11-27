@@ -2,7 +2,6 @@ import { useAppSelector } from '../../hooks';
 import ShortAddress from '../ShortAddress';
 import classes from './NavBar.module.css';
 import logo from '../../assets/logo.svg';
-import maticLogo from '../../assets/matic-logo.svg';
 import { useState } from 'react';
 import { useEtherBalance, useEthers } from '@usedapp/core';
 import WalletConnectModal from '../WalletConnectModal';
@@ -11,7 +10,7 @@ import { Link } from 'react-router-dom';
 import { Nav, Navbar, Container } from 'react-bootstrap';
 import testnetNoun from '../../assets/testnet-noun.png';
 import clsx from 'clsx';
-import config, { CHAIN_ID } from '../../config';
+import config, { CHAIN_ID, CURRENCY_LOGO, CURRENCY_SYMBOL } from '../../config';
 import { utils } from 'ethers';
 import { buildEtherscanAddressLink } from '../../utils/etherscan';
 import { ExternalURL, externalURL } from '../../utils/externalURL';
@@ -106,11 +105,11 @@ const NavBar = () => {
                   rel="noreferrer"
                 >
                   TREASURY <img
-                    src={maticLogo}
+                    src={CURRENCY_LOGO}
                     width="15"
                     height="15"
                     className="d-inline-block mb-1 ms-2 me-1 align-middle"
-                    alt="Matic Logo"
+                    alt={`${CURRENCY_SYMBOL} logo`}
                   />
                   {Number(utils.formatEther(treasuryBalance)).toFixed(0)}
                 </Nav.Link>

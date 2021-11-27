@@ -10,7 +10,7 @@ import { useAuctionMinBidIncPercentage } from '../../wrappers/nounsAuction';
 import { useAppDispatch } from '../../hooks';
 import { AlertModal, setAlertModal } from '../../state/slices/application';
 import { NounsAuctionHouseFactory } from '@nouns/sdk';
-import config from '../../config';
+import config, { CURRENCY_SYMBOL } from '../../config';
 
 const computeMinimumNextBid = (
   currentBid: BigNumber,
@@ -100,7 +100,7 @@ const Bid: React.FC<{
         title: 'Insufficient bid amount 🤏',
         message: `Please place a bid higher than or equal to the minimum bid amount of ${minBidEth(
           minBid,
-        )} MATIC.`,
+        )} ${CURRENCY_SYMBOL}.`,
       });
       setBidInput(minBidEth(minBid));
       return;
@@ -229,7 +229,7 @@ const Bid: React.FC<{
   return (
     <>
       {!auctionEnded && (
-        <p className={classes.minBidCopy}>{`Minimum bid: ${minBidEth(minBid)} MATIC`}</p>
+        <p className={classes.minBidCopy}>{`Minimum bid: ${minBidEth(minBid)} ${CURRENCY_SYMBOL}`}</p>
       )}
       <InputGroup>
         {!auctionEnded && (
@@ -244,7 +244,7 @@ const Bid: React.FC<{
               ref={bidInputRef}
               value={bidInput}
             />
-            <span className={classes.customPlaceholder}>MATIC</span>
+            <span className={classes.customPlaceholder}>{CURRENCY_SYMBOL}</span>
           </>
         )}
         <Button

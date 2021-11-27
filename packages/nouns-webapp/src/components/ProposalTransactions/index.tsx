@@ -4,6 +4,7 @@ import { ProposalTransaction } from '../../wrappers/nounsDao';
 import classes from './ProposalTransactions.module.css';
 import xIcon from '../../assets/x-icon.png';
 import { utils } from 'ethers';
+import { CURRENCY_SYMBOL } from '../../config';
 
 const ProposalTransactions = ({
   className,
@@ -32,7 +33,7 @@ const ProposalTransactions = ({
           <Col sm="3">
             <b>Value</b>
           </Col>
-          <Col sm="9">{tx.value ? `${utils.formatEther(tx.value)} MATIC` : 'None'}</Col>
+          <Col sm="9">{tx.value ? `${utils.formatEther(tx.value)} ${CURRENCY_SYMBOL}` : 'None'}</Col>
         </Row>
         <Row>
           <Col sm="3">

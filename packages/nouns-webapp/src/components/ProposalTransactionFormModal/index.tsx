@@ -19,6 +19,7 @@ import classes from './ProposalTransactionFormModal.module.css';
 import BigNumber from 'bignumber.js';
 import 'bs-custom-file-input';
 import 'react-stepz/dist/index.css';
+import { CURRENCY_SYMBOL } from '../../config';
 
 interface ProposalTransactionFormModalProps {
   show: boolean;
@@ -213,7 +214,7 @@ const ProposalTransactionFormModal = ({
           />
         </Step>
         <Step step={1}>
-          <label htmlFor="eth-value">Value in MATIC (Optional)</label>
+          <label htmlFor="eth-value">Value in {CURRENCY_SYMBOL} (Optional)</label>
           <FormControl value={value} id="eth-value" onChange={e => setValue(e.target.value)} />
         </Step>
         <Step step={2}>
@@ -280,7 +281,7 @@ const ProposalTransactionFormModal = ({
             <Col sm="3">
               <b>Value</b>
             </Col>
-            <Col sm="9">{value ? `${value} MATIC` : 'None'}</Col>
+            <Col sm="9">{value ? `${value} ${CURRENCY_SYMBOL}` : 'None'}</Col>
           </Row>
           <Row>
             <Col sm="3">

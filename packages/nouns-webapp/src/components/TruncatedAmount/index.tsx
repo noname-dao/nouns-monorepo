@@ -1,7 +1,7 @@
 import BigNumber from 'bignumber.js';
 import { utils } from 'ethers';
 import React from 'react';
-import maticLogo from '../../assets/matic-logo.svg';
+import { CURRENCY_LOGO, CURRENCY_SYMBOL } from '../../config';
 
 const TruncatedAmount: React.FC<{ amount: BigNumber }> = props => {
   const { amount } = props;
@@ -9,11 +9,11 @@ const TruncatedAmount: React.FC<{ amount: BigNumber }> = props => {
   const eth = new BigNumber(utils.formatEther(amount.toString())).toFixed(2);
   return <>
     <img
-      src={maticLogo}
+      src={CURRENCY_LOGO}
       width="30"
       height="30"
       className="d-inline-block mb-1 me-1 align-middle"
-      alt="Matic Logo"
+      alt={`${CURRENCY_SYMBOL} logo`}
     />
     {`${eth}`}
   </>;
