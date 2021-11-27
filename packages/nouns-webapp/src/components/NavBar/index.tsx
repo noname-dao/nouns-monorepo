@@ -1,7 +1,7 @@
 import { useAppSelector } from '../../hooks';
 import ShortAddress from '../ShortAddress';
 import classes from './NavBar.module.css';
-import logo from '../../assets/logo.png';
+import logo from '../../assets/logo.svg';
 import maticLogo from '../../assets/matic-logo.svg';
 import { useState } from 'react';
 import { useEtherBalance, useEthers } from '@usedapp/core';
