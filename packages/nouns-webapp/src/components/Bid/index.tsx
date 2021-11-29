@@ -233,7 +233,7 @@ const Bid: React.FC<{
       )}
       <InputGroup>
         {!auctionEnded && (
-          <>
+          <> 
             <FormControl
               aria-label="Example text with button addon"
               aria-describedby="basic-addon1"

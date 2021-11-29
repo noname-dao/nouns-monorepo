@@ -10,11 +10,11 @@ const Banner = () => {
       <Col lg={6}>
         <div className={classes.wrapper}>
           <h1>
-            ONE NONAME,
+            One noname,
             <br />
-            EVERY DAY,
+            every day,
             <br />
-            FOREVER.
+            forever.
           </h1>
         </div>
       </Col>

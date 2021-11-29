@@ -6,9 +6,6 @@ import Link from '../Link';
 import { CURRENCY_SYMBOL } from '../../config';
 
 const Documentation = () => {
-  const cryptopunksLink = (
-    <Link text="Cryptopunks" url="https://www.larvalabs.com/cryptopunks" leavesPage={true} />
-  );
   const playgroundLink = <Link text="nonames playground" url="/playground" leavesPage={false} />;
   const publicDomainLink = (
     <Link
@@ -26,10 +23,13 @@ const Documentation = () => {
         <div className={classes.headerWrapper}>
           <h1>What is Noname DAO?</h1>
           <p>
-            Nonames are an experimental attempt to improve the formation of on-chain avatar
-            communities. While projects such as {cryptopunksLink} have attempted to bootstrap
-            digital community and identity, Nonames attempt to bootstrap identity, community,
-            governance and a treasury that can be used by the community.
+            Noname DAO is an experimental community that aims to build a new method of investors and founders collaboration. Nonamers can share and propose their knowledge of profitable investment options which the whole community can profit from using its large accumulated funds once DAO decides to approve it.
+          </p>
+          <p>
+            It's the ultimate membership powered by a community of blockchain founders, investors, and experts bound together by shared values and shared incentives.
+          </p>
+          <p>
+            Mission of Noname DAO is to fund awesome projects that people really need in the crypto area through collective voting using a collective treasury.
           </p>
           <p>
             Learn more about on-chain nonames below, or make some off-chain nonames using{' '}
@@ -51,22 +51,20 @@ const Documentation = () => {
             </Accordion.Body>
           </Accordion.Item>
           <Accordion.Item eventKey="1" className={classes.accordionItem}>
-            <Accordion.Header className={classes.accordionHeader}>Summary</Accordion.Header>
+            <Accordion.Header className={classes.accordionHeader}>Concept</Accordion.Header>
             <Accordion.Body>
               <ul>
-                <li>nonames artwork is {publicDomainLink}</li>
-                <li>1 noname trustlessly auctioned every 24 hours, forever</li>
-                <li>100% of noname auction proceeds are trustlessly sent to Noname DAO treasury</li>
-                <li>settlement of one auction kicks off the next</li>
-                <li>all nonamers are members of Noname DAO</li>
-                <li>Noname DAO uses a fork of {compoundGovLink}</li>
-                <li>1 noname = 1 vote</li>
-                <li>treasury is controlled exclusively by nonames via governance</li>
-                <li>artwork is generative and stored directly on-chain (not IPFS)</li>
-                <li>no explicit rules for attribute scarcity, all nonames are equally rare</li>
-                <li>
-                  Founders receive rewards in the form of nonames (10% of supply for first 5 years)
-                </li>
+                <li>Noname's NFT are generated on-chain, 1 NFT once a day, forever. No NFT is preliminary created, though it can be predicted looking at previous block hash.</li>
+                <li>Every NFT is auctioned trustlessly, 100% of the funds received go to the Noname Treasury.</li>
+                <li>Every 10th NFT until N=1337 (~4 years) goes to Noname's Founders Vault as a compensation (multisig contract controlled by founders); Founders can't transfer their NFT until Noname #360 is received.</li>
+                <li>Every Nonamer can make a proposal to spend some money from the treasury. NFTs are locked until voting ends. A well-written and motivating proposal has more chances to be successfully settled. Voting starts 3 days after proposal submission and lasts for 4 more days.</li>
+                <li>The more #Nonames you have, the more reward you can claim on the treasury reward distribution.</li>
+                <li>Number of NFTs required for creating a proposal and for quorum is set with BPS (%) from the current token supply (BPS is defined in DAO).</li>
+                <li>Any participant can vote for or against any proposal during its voting window, locking theirs NFT (1 NFT for 1 vote).</li>
+                <li>Noname's Founders Vault can veto any proposal until it's executed.</li>
+                <li>Besides text description, proposal contains specific instructions to perform by DAO smart contract: call method, pass arguments, etc, i.e. transfer 20000 USDT to 0xabc123…</li>
+                <li>Once settled, proposal is executed if more participants voted for it or just closes otherwise. All locked NFTs by that proposal are unlocked then.</li>
+                <li>DAO smart contract has a method to secure a community reward. Every NFT is considered as a pool share here. After the successful call, Nonamers can claim their reward from the DAO.</li>
               </ul>
             </Accordion.Body>
           </Accordion.Item>
@@ -75,20 +73,22 @@ const Documentation = () => {
             <Accordion.Header className={classes.accordionHeader}>Daily Auctions</Accordion.Header>
             <Accordion.Body>
               <p>
-                The Noname Auction Contract will act as a self-sufficient noname generation and
-                distribution mechanism, auctioning one noname every 24 hours, forever. 100% of auction
-                proceeds ({CURRENCY_SYMBOL}) are automatically deposited in the Noname DAO treasury, where they are
-                governed by noname owners.
+                The Noname Auction Contract acting as a self-sufficient generation and
+                distribution mechanism, auctioning one Noname every 24 hours, forever.
+                100% of auction proceeds ({CURRENCY_SYMBOL}) are automatically deposited in the Noname DAO treasury,
+                where they are governed by Noname owners.
               </p>
 
               <p>
-                Each time an auction is settled, the settlement transaction will also cause a new
-                noname to be minted and a new 24 hour auction to begin.{' '}
+                Each time an auction is settled, the settlement transaction will
+                also because a new Noname to be minted and a new 24-hour auction to begin.
               </p>
               <p>
-                While settlement is most heavily incentivized for the winning bidder, it can be
-                triggered by anyone, allowing the system to trustlessly auction nonames as long as
-                Ethereum is operational and there are interested bidders.
+                <b>Initial default price — 1500 {CURRENCY_SYMBOL}.</b>
+              </p>
+              <p>
+                While settlement is most heavily incentivized for the winning bidder, it can be triggered by anyone, allowing the system
+                to trustlessly auction Nonames as long as Polygon is operational and there are interested bidders&
               </p>
             </Accordion.Body>
           </Accordion.Item>

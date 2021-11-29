@@ -1,9 +1,10 @@
 .headerWrapper h1 {
-  font-family: 'Londrina Solid';
+  font-family: 'TTRamillas-Medium';
+  /* font-weight: bold; */
   font-size: 4rem;
 }
 .headerWrapper p {
-  margin: 3rem 0;
+  margin: 1rem 0;
 }
 
 @media (max-width: 992px) {
@@ -29,7 +30,8 @@
 .accordionHeader button {
   border: none;
   background-color: transparent;
-  font-family: 'Londrina Solid';
+  font-family: 'TTRamillas-Medium';
+  /* font-weight: bold; */
   font-size: 2.5rem !important;
   cursor: pointer;
   line-height: normal;

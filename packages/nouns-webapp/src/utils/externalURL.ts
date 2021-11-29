@@ -2,6 +2,8 @@ export enum ExternalURL {
   discord,
   twitter,
   notion,
+  telegram,
+  email,
 }
 
 export const externalURL = (externalURL: ExternalURL) => {
@@ -12,5 +14,9 @@ export const externalURL = (externalURL: ExternalURL) => {
       return 'https://twitter.com/Daononame';
     case ExternalURL.notion:
       return 'https://nonamedao.com';
+    case ExternalURL.telegram:
+      return 'https://t.me/nonamedao';
+    case ExternalURL.email:
+      return 'mailto:hi@nonamedao.com';
   }
 };
