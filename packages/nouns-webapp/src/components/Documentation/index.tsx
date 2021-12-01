@@ -3,7 +3,7 @@ import { Col } from 'react-bootstrap';
 import classes from './Documentation.module.css';
 import Accordion from 'react-bootstrap/Accordion';
 import Link from '../Link';
-import { CURRENCY_SYMBOL } from '../../config';
+import { CURRENCY_SYMBOL, INITIAL_DEFAULT_PRICE } from '../../config';
 
 const Documentation = () => {
   const playgroundLink = <Link text="nonames playground" url="/playground" leavesPage={false} />;
@@ -58,7 +58,7 @@ const Documentation = () => {
                 <li>Every NFT is auctioned trustlessly, 100% of the funds received go to the Noname Treasury.</li>
                 <li>Every 10th NFT until N=1337 (~4 years) goes to Noname's Founders Vault as a compensation (multisig contract controlled by founders); Founders can't transfer their NFT until Noname #360 is received.</li>
                 <li>Every Nonamer can make a proposal to spend some money from the treasury. NFTs are locked until voting ends. A well-written and motivating proposal has more chances to be successfully settled. Voting starts 3 days after proposal submission and lasts for 4 more days.</li>
-                <li>The more #Nonames you have, the more reward you can claim on the treasury reward distribution.</li>
+                <li>The more Nonames you have, the more reward you can claim on the treasury reward distribution.</li>
                 <li>Number of NFTs required for creating a proposal and for quorum is set with BPS (%) from the current token supply (BPS is defined in DAO).</li>
                 <li>Any participant can vote for or against any proposal during its voting window, locking theirs NFT (1 NFT for 1 vote).</li>
                 <li>Noname's Founders Vault can veto any proposal until it's executed.</li>
@@ -84,7 +84,7 @@ const Documentation = () => {
                 also because a new Noname to be minted and a new 24-hour auction to begin.
               </p>
               <p>
-                <b>Initial default price — 1500 {CURRENCY_SYMBOL}.</b>
+                <b>Initial default price — ${INITIAL_DEFAULT_PRICE} {CURRENCY_SYMBOL}.</b>
               </p>
               <p>
                 While settlement is most heavily incentivized for the winning bidder, it can be triggered by anyone, allowing the system
@@ -125,9 +125,9 @@ const Documentation = () => {
             <Accordion.Header className={classes.accordionHeader}>Noname Traits</Accordion.Header>
             <Accordion.Body>
               <p>
-                Nonames are generated randomly based on block hashes. There are no 'if'
-                statements or other rules governing noname trait scarcity, which makes all nonames
-                equally rare. As of this writing, nonames are made up of:
+              Nonames are generated randomly based on block hashes. There are no 'if' statements or other
+              rules governing noname trait scarcity, which makes all nonames equally rare. As of this
+              writing, nonames are made up of:
               </p>
               <ul>
                 <li>backgrounds (2) </li>

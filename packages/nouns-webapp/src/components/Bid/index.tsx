@@ -10,7 +10,7 @@ import { useAuctionMinBidIncPercentage } from '../../wrappers/nounsAuction';
 import { useAppDispatch } from '../../hooks';
 import { AlertModal, setAlertModal } from '../../state/slices/application';
 import { NounsAuctionHouseFactory } from '@nouns/sdk';
-import config, { CURRENCY_SYMBOL } from '../../config';
+import config, { CURRENCY_SYMBOL, INITIAL_DEFAULT_PRICE } from '../../config';
 
 const computeMinimumNextBid = (
   currentBid: BigNumber,
@@ -23,7 +23,7 @@ const computeMinimumNextBid = (
 
 const minBidEth = (minBid: BigNumber): string => {
   if (minBid.isZero()) {
-    return '50';
+    return INITIAL_DEFAULT_PRICE.toString();
   }
 
   const eth = Number(utils.formatEther(EthersBN.from(minBid.toString())));

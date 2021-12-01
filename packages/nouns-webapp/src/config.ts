@@ -11,6 +11,7 @@ interface AppConfig {
 
 export const CURRENCY_SYMBOL = "MATIC";
 export const CURRENCY_LOGO = maticLogo;
+export const INITIAL_DEFAULT_PRICE = 50;
 
 type SupportedChains = ChainId.Rinkeby | ChainId.Mainnet | ChainId.Hardhat;
 
