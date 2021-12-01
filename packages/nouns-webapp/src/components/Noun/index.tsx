@@ -1,12 +1,12 @@
 import classes from './Noun.module.css';
 import React from 'react';
-import loadingNoun from '../../assets/loading-skull-noun.gif';
+import loadingNoname from '../../assets/loading-noname.gif';
 import Image from 'react-bootstrap/Image';
 
 export const LoadingNoun = () => {
   return (
     <div className={classes.imgWrapper}>
-      <Image className={classes.img} src={loadingNoun} alt={'loading noun'} fluid />
+      <Image className={classes.img} src={loadingNoname} alt={'loading noname'} fluid />
     </div>
   );
 };
@@ -22,7 +22,7 @@ const Noun: React.FC<{
     <div className={`${classes.imgWrapper} ${wrapperClassName}`}>
       <Image
         className={`${classes.img} ${className}`}
-        src={imgPath ? imgPath : loadingNoun}
+        src={imgPath ? imgPath : loadingNoname}
         alt={alt}
         fluid
       />
