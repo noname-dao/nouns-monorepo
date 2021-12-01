@@ -56,7 +56,7 @@ const Documentation = () => {
               <ul>
                 <li>Noname's NFT are generated on-chain, 1 NFT once a day, forever. No NFT is preliminary created, though it can be predicted looking at previous block hash.</li>
                 <li>Every NFT is auctioned trustlessly, 100% of the funds received go to the Noname Treasury.</li>
-                <li>Every 10th NFT until N=1337 (~4 years) goes to Noname's Founders Vault as a compensation (multisig contract controlled by founders); Founders can't transfer their NFT until Noname #360 is received.</li>
+                <li>Every 10th NFT until N=1825 (~5 years) goes to Noname's Founders Vault as a compensation (multisig contract controlled by founders); Founders can't transfer their NFT until Noname #430 is received.</li>
                 <li>Every Nonamer can make a proposal to spend some money from the treasury. NFTs are locked until voting ends. A well-written and motivating proposal has more chances to be successfully settled. Voting starts 3 days after proposal submission and lasts for 4 more days.</li>
                 <li>The more Nonames you have, the more reward you can claim on the treasury reward distribution.</li>
                 <li>Number of NFTs required for creating a proposal and for quorum is set with BPS (%) from the current token supply (BPS is defined in DAO).</li>
