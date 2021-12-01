@@ -15,7 +15,7 @@ import {
   setNextOnDisplayAuctionNounId,
   setPrevOnDisplayAuctionNounId,
 } from '../../state/slices/onDisplayAuction';
-import { beige, grey } from '../../utils/nounBgColors';
+import { grey } from '../../utils/nounBgColors';
 
 interface AuctionProps {
   auction?: IAuction;
