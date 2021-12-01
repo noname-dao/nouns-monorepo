@@ -64,12 +64,10 @@ const Bid: React.FC<{
   const setModal = useCallback((modal: AlertModal) => dispatch(setAlertModal(modal)), [dispatch]);
 
   const minBidIncPercentage = useAuctionMinBidIncPercentage();
-  console.log(minBidIncPercentage?.toString())
   const minBid = computeMinimumNextBid(
     auction && new BigNumber(auction.amount.toString()),
     minBidIncPercentage,
   );
-  console.log(minBid.toString())
 
   const { send: placeBid, state: placeBidState } = useContractFunction(
     nounsAuctionHouseContract,
