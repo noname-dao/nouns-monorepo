@@ -23,7 +23,7 @@ const computeMinimumNextBid = (
 
 const minBidEth = (minBid: BigNumber): string => {
   if (minBid.isZero()) {
-    return '0.01';
+    return '50';
   }
 
   const eth = Number(utils.formatEther(EthersBN.from(minBid.toString())));
@@ -64,10 +64,12 @@ const Bid: React.FC<{
   const setModal = useCallback((modal: AlertModal) => dispatch(setAlertModal(modal)), [dispatch]);
 
   const minBidIncPercentage = useAuctionMinBidIncPercentage();
+  console.log(minBidIncPercentage?.toString())
   const minBid = computeMinimumNextBid(
     auction && new BigNumber(auction.amount.toString()),
     minBidIncPercentage,
   );
+  console.log(minBid.toString())
 
   const { send: placeBid, state: placeBidState } = useContractFunction(
     nounsAuctionHouseContract,
