@@ -84,7 +84,7 @@ const Documentation = () => {
                 also because a new Noname to be minted and a new 24-hour auction to begin.
               </p>
               <p>
-                <b>Initial default price — ${INITIAL_DEFAULT_PRICE} {CURRENCY_SYMBOL}.</b>
+                <b>Initial default price — {INITIAL_DEFAULT_PRICE} {CURRENCY_SYMBOL}.</b>
               </p>
               <p>
                 While settlement is most heavily incentivized for the winning bidder, it can be triggered by anyone, allowing the system
