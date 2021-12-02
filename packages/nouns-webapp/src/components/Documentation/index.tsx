@@ -88,7 +88,7 @@ const Documentation = () => {
               </p>
               <p>
                 While settlement is most heavily incentivized for the winning bidder, it can be triggered by anyone, allowing the system
-                to trustlessly auction Nonames as long as Polygon is operational and there are interested bidders&
+                to trustlessly auction Nonames as long as Polygon is operational and there are interested bidders.
               </p>
             </Accordion.Body>
           </Accordion.Item>
