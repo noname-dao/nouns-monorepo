@@ -88,7 +88,7 @@ const NavBar = () => {
               alt="Noname DAO logo"
             />
           </Navbar.Brand>
-          {Number(CHAIN_ID) !== 1 && (
+          {Number(CHAIN_ID) !== 137 && (
             <Nav.Item>
               <img className={classes.testnetImg} src={testnetNoun} alt="testnet noun" />
               TESTNET

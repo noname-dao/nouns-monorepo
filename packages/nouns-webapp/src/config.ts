@@ -13,7 +13,7 @@ export const CURRENCY_SYMBOL = "MATIC";
 export const CURRENCY_LOGO = maticLogo;
 export const INITIAL_DEFAULT_PRICE = 50;
 
-type SupportedChains = ChainId.Rinkeby | ChainId.Mainnet | ChainId.Hardhat;
+type SupportedChains = ChainId.Rinkeby | ChainId.Mainnet | ChainId.Polygon | ChainId.Hardhat;
 
 export const CHAIN_ID: SupportedChains = parseInt(process.env.REACT_APP_CHAIN_ID ?? '4');
 
@@ -36,6 +36,12 @@ const app: Record<SupportedChains, AppConfig> = {
     jsonRpcUri: createNetworkHttpUrl('rinkeby'),
     wsRpcUri: createNetworkWsUrl('rinkeby'),
     subgraphApiUri: 'https://api.thegraph.com/subgraphs/name/nounsdao/nouns-subgraph-rinkeby-v4',
+    enableHistory: process.env.REACT_APP_ENABLE_HISTORY === 'true',
+  },
+  [ChainId.Polygon]: {
+    jsonRpcUri: createNetworkHttpUrl('polygon'),
+    wsRpcUri: createNetworkWsUrl('polygon'),
+    subgraphApiUri: 'https://api.thegraph.com/subgraphs/name/nonamedao/nonames-subgraph',
     enableHistory: process.env.REACT_APP_ENABLE_HISTORY === 'true',
   },
   [ChainId.Mainnet]: {
