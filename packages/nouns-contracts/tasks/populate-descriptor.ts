@@ -6,13 +6,13 @@ task('populate-descriptor', 'Populates the descriptor with color palettes and No
   .addOptionalParam(
     'nftDescriptor',
     'The `NFTDescriptor` contract address',
-    '0x1BBEc8f19D78Dc1E1303D89817ee69D57d548949',
+    '0x929ade1117f741Dd66F121EF80fdbf59b3f1d802',
     types.string,
   )
   .addOptionalParam(
     'nounsDescriptor',
     'The `NounsDescriptor` contract address',
-    '0xD13232F35a0F2831b0584CC9C595A35c12D78BAB',
+    '0x9b207eaA8FDa92Ae9DBF5c8d480f803A6371cdD8',
     types.string,
   )
   .setAction(async ({ nftDescriptor, nounsDescriptor }, { ethers }) => {
@@ -29,7 +29,11 @@ task('populate-descriptor', 'Populates the descriptor with color palettes and No
     // Chunk head and accessory population due to high gas usage
     await descriptorContract.addManyColorsToPalette(0, palette);
 
-    await descriptorContract.addManyBodies(bodies.map(({ data }) => data));
+
+    const bodyChunk = chunkArray(bodies, 10);
+    for (const chunk of bodyChunk) {
+      await descriptorContract.addManyBodies(chunk.map(({ data }) => data));
+    }
 
     const bgChunk = chunkArray(backgrounds, 10);
     for (const chunk of bgChunk) {
@@ -46,7 +50,10 @@ task('populate-descriptor', 'Populates the descriptor with color palettes and No
       await descriptorContract.addManyFaces(chunk.map(({ data }) => data));
     }
 
-    await descriptorContract.addManyTails(tails.map(({ data }) => data));
+    const tailChunk = chunkArray(tails, 10);
+    for (const chunk of tailChunk) {
+        await descriptorContract.addManyTails(chunk.map(({ data }) => data));
+    }
 
     console.log('Descriptor populated with palettes and parts');
   });

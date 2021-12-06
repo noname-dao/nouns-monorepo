@@ -4,7 +4,7 @@ task('restart-auction', 'Mints a Noun')
   .addOptionalParam(
     'nounsToken',
     'The `NounsToken` contract address',
-    '0xEE72b27f1A89E3564497c41c39d825bE599BfD72',
+    '0x92BB7Ab272027B6831E0B3cc85eA674059E24D1c',
     types.string,
   )
   .setAction(async ({ nounsToken }, { ethers }) => {
@@ -12,6 +12,8 @@ task('restart-auction', 'Mints a Noun')
     const nftContract = nftFactory.attach(nounsToken);
 
     const receipt = await (await nftContract.unpause()).wait();
+    console.log(receipt.events);
+
     const nounCreated = receipt.events?.[1];
     const { tokenId } = nounCreated?.args;
 

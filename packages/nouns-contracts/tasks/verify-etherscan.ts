@@ -20,32 +20,32 @@ interface VerifyArgs {
 
 const contracts: Record<ContractName, VerifyArgs> = {
   NFTDescriptor: {
-    address: '0x1BBEc8f19D78Dc1E1303D89817ee69D57d548949',
+    address: '0xA1dFDaf6af1c75A911Ba0df1053f8f114F21D8e7',
   },
   NounsDescriptor: {
-    address: '0xD13232F35a0F2831b0584CC9C595A35c12D78BAB',
+    address: '0x8494F2C32247B0f80ED54E1A7d923EE8c85A51aa',
     libraries: {
-      NFTDescriptor: '0x1BBEc8f19D78Dc1E1303D89817ee69D57d548949',
+      NFTDescriptor: '0xA1dFDaf6af1c75A911Ba0df1053f8f114F21D8e7',
     },
   },
   NounsSeeder: {
-    address: '0x6Bd1c25Bc3DE18c4cAf38b1A7Ef93383645e3332',
+    address: '0x30510ed5b438C0DAF1524781Da70D88984015c7d',
   },
   NounsToken: {
-    address: '0xeE06c05cB9CC05f56E8177451641Cd784bE364ed',
+    address: '0x49593F74309BD424A5EBcF138Cf1D89e31dCF7c8',
     constructorArguments: [
       '0x6Aa06477c92a8AD76Fa11F0F9B455751dD01D0F7',
-      '0xEE72b27f1A89E3564497c41c39d825bE599BfD72',
-      '0xD13232F35a0F2831b0584CC9C595A35c12D78BAB',
-      '0x6Bd1c25Bc3DE18c4cAf38b1A7Ef93383645e3332',
+      '0x8494F2C32247B0f80ED54E1A7d923EE8c85A51aa',
+      '0x8494F2C32247B0f80ED54E1A7d923EE8c85A51aa',
+      '0x30510ed5b438C0DAF1524781Da70D88984015c7d',
       '0xf57b2c51ded3a29e6891aba85459d600256cf317',
     ],
   },
   NounsAuctionHouse: {
-    address: '0xF45A566b4f86eAc392651330133ab65896B3D37d',
+    address: '0xEAAB5E7bDc4614ceeA8E8C74E6C7731064a3bb45',
   },
   NounsAuctionHouseProxyAdmin: {
-    address: '0x44f214C6481D52775D99f6a4bDfB8ec5B02ED1DB',
+    address: '0xC2a424Ce1f7aeB83Ccf589714cCBaaE7cA212fAb',
   },
   NounsAuctionHouseProxy: {
     address: '0xEE72b27f1A89E3564497c41c39d825bE599BfD72',
