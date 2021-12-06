@@ -13,6 +13,18 @@ const chainIdToAddresses: { [chainId: number]: ContractAddresses } = {
     nounsDAOProxy: '0x6f3E6272A167e8AcCb32072d08E0957F9c79223d',
     nounsDAOLogicV1: '0xa43aFE317985726E4e194eb061Af77fbCb43F944',
   },
+  [ChainId.Polygon]: {
+    nounsToken: '0x32888D12363DdE67A83e83FdcD71F780239B895f',
+    nounsSeeder: '0x0DE37e6CDf5D25f787d90f8C03d42e59EdDf7C5E',
+    nounsDescriptor: '0x9b207eaA8FDa92Ae9DBF5c8d480f803A6371cdD8',
+    nftDescriptor: '0x929ade1117f741Dd66F121EF80fdbf59b3f1d802',
+    nounsAuctionHouse: '0x562f27B8539C63d5dECA627eD79a17ee1b9a193a',
+    nounsAuctionHouseProxy: '0x92BB7Ab272027B6831E0B3cc85eA674059E24D1c',
+    nounsAuctionHouseProxyAdmin: '0x08227Ba8f8bF4807C996Cfc96687b3871bfdb7eB',
+    nounsDaoExecutor: '0xBCdE52481d3e3064e8C678bCcb31AAb27D423230',
+    nounsDAOProxy: '0x9D58e663A4761783343af8848Ce0da06F8d4cE36',
+    nounsDAOLogicV1: '0xbFBE462bE85108cCb649D1Ab897a4A79C8002275',
+  },
   [ChainId.Rinkeby]: {
     nounsToken: '0xeE06c05cB9CC05f56E8177451641Cd784bE364ed',
     nounsSeeder: '0x6Bd1c25Bc3DE18c4cAf38b1A7Ef93383645e3332',
