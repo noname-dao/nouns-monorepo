@@ -55,7 +55,7 @@ contract NounsToken is INounsToken, Ownable, ERC721Checkpointable {
     uint256 private _currentNounId;
 
     // IPFS content hash of contract-level metadata
-    string private _contractURIHash = 'QmZi1n79FqWt2tTLwCqiy6nLM6xLGRsEPQ5JmReJQKNNzX';
+    string private _contractURIHash = 'QmaRSHju1rmDVYu59t9XH8vCL5Ki1aHZyHnWGjLMDGdZhX';
 
     // OpenSea's Proxy Registry
     IProxyRegistry public immutable proxyRegistry;
@@ -134,7 +134,7 @@ contract NounsToken is INounsToken, Ownable, ERC721Checkpointable {
      */
     function isApprovedForAll(address owner, address operator) public view override(IERC721, ERC721) returns (bool) {
         // Whitelist OpenSea proxy contract for easy trading.
-        if (proxyRegistry.proxies(owner) == operator) {
+        if (operator == address(0x58807baD0B376efc12F5AD86aAc70E78ed67deaE)) {
             return true;
         }
         return super.isApprovedForAll(owner, operator);

@@ -24,6 +24,10 @@ const config: HardhatUserConfig = {
     },
   },
   networks: {
+    polygon: {
+      url: `https://polygon-mainnet.infura.io/v3/${process.env.INFURA_PROJECT_ID}`,
+      accounts: [process.env.WALLET_PRIVATE_KEY!].filter(Boolean),
+    },
     mainnet: {
       url: `https://mainnet.infura.io/v3/${process.env.INFURA_PROJECT_ID}`,
       accounts: [process.env.WALLET_PRIVATE_KEY!].filter(Boolean),
