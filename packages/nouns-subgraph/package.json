@@ -19,7 +19,7 @@
     "prepare:mainnet": "mustache config/mainnet.json subgraph.yaml.mustache > subgraph.yaml",
     "deploy:rinkeby": "yarn clean && yarn prepare:rinkeby && yarn codegen && yarn deploy nounsdao/nouns-subgraph-rinkeby",
     "deploy:mainnet": "yarn clean && yarn prepare:mainnet && yarn codegen && yarn deploy nounsdao/nouns-subgraph",
-    "deploy:polygon-test": "yarn clean && yarn prepare:polygon-test && yarn codegen && yarn deploy noname-dao/noname-subgraph-test",
+    "deploy:polygon-test": "yarn clean && yarn prepare:polygon-test && yarn codegen && yarn deploy noname-dao/noname-subgraph-beta",
     "deploy:polygon": "yarn clean && yarn prepare:polygon && yarn codegen && yarn deploy noname-dao/noname-subgraph"
   },
   "devDependencies": {
