@@ -5,7 +5,7 @@ import {
   AuctionExtended,
   AuctionSettled,
 } from './types/NounsAuctionHouse/NounsAuctionHouse';
-import { Auction, Noun, Bid } from './types/schema';
+import { Auction, Noname as Noun, Bid } from './types/schema';
 import { getOrCreateAccount } from './utils/helpers';
 
 export function handleAuctionCreated(event: AuctionCreated): void {

@@ -5,7 +5,7 @@ import {
   NounCreated,
   Transfer,
 } from './types/NounsToken/NounsToken';
-import { Noun, Seed } from './types/schema';
+import { Noname as Noun, Seed } from './types/schema';
 import { BIGINT_ONE, BIGINT_ZERO, ZERO_ADDRESS } from './utils/constants';
 import { getGovernanceEntity, getOrCreateDelegate, getOrCreateAccount } from './utils/helpers';
 
@@ -16,8 +16,8 @@ export function handleNounCreated(event: NounCreated): void {
   seed.background = event.params.seed.background;
   seed.body = event.params.seed.body;
   seed.accessory = event.params.seed.accessory;
-  seed.head = event.params.seed.head;
-  seed.glasses = event.params.seed.glasses;
+  seed.face = event.params.seed.face;
+  seed.tail = event.params.seed.tail;
   seed.save();
 
   let noun = Noun.load(nounId);

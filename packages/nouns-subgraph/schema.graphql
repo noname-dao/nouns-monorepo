@@ -1,5 +1,5 @@
 type Seed @entity {
-  "The Noun's ERC721 token id"
+  "The Noname's ERC721 token id"
   id: ID!
 
   "The background index"
@@ -11,24 +11,24 @@ type Seed @entity {
   "The accessory index"
   accessory: BigInt!
 
-  "The head index"
-  head: BigInt!
+  "The face index"
+  face: BigInt!
 
-  "The glasses index"
-  glasses: BigInt!
+  "The tail index"
+  tail: BigInt!
 }
 
-type Noun @entity {
-  "The Noun's ERC721 token id"
+type Noname @entity {
+  "The Noname's ERC721 token id"
   id: ID!
 
-  "The seed used to determine the Noun's traits"
+  "The seed used to determine the Noname's traits"
   seed: Seed
 
-  "The owner of the Noun"
+  "The owner of the Noname"
   owner: Account!
 
-  "Historical votes for the Noun"
+  "Historical votes for the Noname"
   votes: [Vote!]! @derivedFrom(field: "nouns")
 }
 
@@ -36,8 +36,8 @@ type Bid @entity {
   "Bid transaction hash"
   id: ID!
 
-  "The Noun being bid on"
-  noun: Noun!
+  "The Noname being bid on"
+  noun: Noname!
 
   "Bid amount"
   amount: BigInt!
@@ -59,11 +59,11 @@ type Bid @entity {
 }
 
 type Auction @entity {
-  "The Noun's ERC721 token id"
+  "The Noname's ERC721 token id"
   id: ID!
 
-  "The Noun"
-  noun: Noun!
+  "The Noname"
+  noun: Noname!
 
   "The current highest bid amount"
   amount: BigInt!
@@ -94,36 +94,36 @@ enum ProposalStatus {
 }
 
 type Account @entity {
-  "An Account is any address that holds any amount of Nouns, the id used is the blockchain address."
+  "An Account is any address that holds any amount of Nonames, the id used is the blockchain address."
   id: ID!
 
   "Delegate address of the token holder which will participate in votings. Delegates don't need to hold any tokens and can even be the token holder itself."
   delegate: Delegate
 
-  "Noun balance of this address expressed in the smallest unit of the Nouns ERC721 Token"
+  "Noname balance of this address expressed in the smallest unit of the Nouns ERC721 Token"
   tokenBalanceRaw: BigInt!
 
-  "Noun balance of this address expressed as a BigInt normalized value for the Nouns ERC721 Token"
+  "Noname balance of this address expressed as a BigInt normalized value for the Nouns ERC721 Token"
   tokenBalance: BigInt!
 
-  "Total amount of Nouns ever held by this address expressed in the smallest unit of the Nouns ERC721 Token"
+  "Total amount of Nonames ever held by this address expressed in the smallest unit of the Nouns ERC721 Token"
   totalTokensHeldRaw: BigInt!
 
-  "Total amount of Nouns ever held by this address expressed as a BigInt normalized value for the Nouns ERC721 Token"
+  "Total amount of Nonames ever held by this address expressed as a BigInt normalized value for the Nouns ERC721 Token"
   totalTokensHeld: BigInt!
 
-  "The Nouns owned by this account"
-  nouns: [Noun!]!
+  "The Nonames owned by this account"
+  nouns: [Noname!]!
 }
 
 type Delegate @entity {
   "A Delegate is any address that has been delegated with voting tokens by a token holder, id is the blockchain address of said delegate"
   id: ID!
 
-  "Amount of votes delegated to this delegate to be used on proposal votings expressed in the smallest unit of the Nouns ERC721 Token"
+  "Amount of votes delegated to this delegate to be used on proposal votings expressed in the smallest unit of the Nonames ERC721 Token"
   delegatedVotesRaw: BigInt!
 
-  "Amount of votes delegated to this delegate to be used on proposal votings expressed as a BigInt normalized value for the Nouns ERC721 Token"
+  "Amount of votes delegated to this delegate to be used on proposal votings expressed as a BigInt normalized value for the Nonames ERC721 Token"
   delegatedVotes: BigInt!
 
   tokenHoldersRepresentedAmount: Int!
@@ -131,8 +131,8 @@ type Delegate @entity {
   "Token holders that this delegate represents"
   tokenHoldersRepresented: [Account!]! @derivedFrom(field: "delegate")
 
-  "Nouns that this delegate represents"
-  nounsRepresented: [Noun!]!
+  "Nonames that this delegate represents"
+  nounsRepresented: [Noname!]!
 
   "Votes that a delegate has made in different proposals"
   votes: [Vote!]! @derivedFrom(field: "voter")
@@ -195,17 +195,17 @@ type Vote @entity {
   "The integer support value: against (0), for (1), or abstain (2)"
   supportDetailed: Int!
 
-  "Amount of votes in favour or against expressed in the smallest unit of the Nouns ERC721 Token"
+  "Amount of votes in favour or against expressed in the smallest unit of the Nonames ERC721 Token"
   votesRaw: BigInt!
 
-  "Amount of votes in favour or against expressed as a BigInt normalized value for the Nouns ERC721 Token"
+  "Amount of votes in favour or against expressed as a BigInt normalized value for the Nonames ERC721 Token"
   votes: BigInt!
 
   "Delegate that emitted the vote"
   voter: Delegate!
 
-  "The Nouns used to vote"
-  nouns: [Noun!]
+  "The Nonames used to vote"
+  nouns: [Noname!]
 
   "Proposal that is being voted on"
   proposal: Proposal!
@@ -230,10 +230,10 @@ type Governance @entity {
   "Total number of delegates that held delegated votes"
   totalDelegates: BigInt!
 
-  "Total number of votes delegated expressed in the smallest unit of the Nouns ERC721 Token"
+  "Total number of votes delegated expressed in the smallest unit of the Nonames ERC721 Token"
   delegatedVotesRaw: BigInt!
 
-  "Total number of votes delegated expressed as a BigInt normalized value for the Nouns ERC721 Token"
+  "Total number of votes delegated expressed as a BigInt normalized value for the Nonames ERC721 Token"
   delegatedVotes: BigInt!
 
   "Number of proposals currently queued for execution"
