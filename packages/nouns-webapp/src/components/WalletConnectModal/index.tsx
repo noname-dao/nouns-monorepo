@@ -28,7 +28,7 @@ const WalletConnectModal: React.FC<{ onDismiss: () => void }> = props => {
         }}
         walletType={WALLET_TYPE.metamask}
       />
-      <WalletButton
+  {/*    <WalletButton
         onClick={() => {
           const fortmatic = new FortmaticConnector({
             apiKey: 'pk_test_FB5E5C15F2EC5AE6',
@@ -37,7 +37,7 @@ const WalletConnectModal: React.FC<{ onDismiss: () => void }> = props => {
           activate(fortmatic);
         }}
         walletType={WALLET_TYPE.fortmatic}
-      />
+      /> */}
       <WalletButton
         onClick={() => {
           const walletlink = new WalletConnectConnector({
@@ -51,6 +51,7 @@ const WalletConnectModal: React.FC<{ onDismiss: () => void }> = props => {
         }}
         walletType={WALLET_TYPE.walletconnect}
       />
+      {/*
       <WalletButton
         onClick={() => {
           const walletlink = new WalletLinkConnector({
@@ -82,7 +83,7 @@ const WalletConnectModal: React.FC<{ onDismiss: () => void }> = props => {
           activate(ledger);
         }}
         walletType={WALLET_TYPE.ledger}
-      /> */}
+      />
       <WalletButton
         onClick={() => {
           const trezor = new TrezorConnector({
@@ -94,7 +95,7 @@ const WalletConnectModal: React.FC<{ onDismiss: () => void }> = props => {
           activate(trezor);
         }}
         walletType={WALLET_TYPE.trezor}
-      />
+      /> */}
       <div className={classes.clickable} onClick={() => setAdvancedOpen(!advancedOpen)}>
         Advanced {advancedOpen ? '^' : 'v'}
       </div>

@@ -84,6 +84,7 @@ const useDappConfig = {
   readOnlyUrls: {
     [ChainId.Rinkeby]: createNetworkHttpUrl('rinkeby'),
     [ChainId.Mainnet]: createNetworkHttpUrl('mainnet'),
+    [ChainId.Polygon]: createNetworkHttpUrl('polygon-mainnet'),
     [ChainId.Hardhat]: 'http://localhost:8545',
   },
 };

@@ -28,7 +28,8 @@ export const createNetworkHttpUrl = (network: string): string => {
 
 export const createNetworkWsUrl = (network: string): string => {
   const custom = process.env[`REACT_APP_${network.toUpperCase()}_WSRPC`];
-  return custom || `wss://${network}.infura.io/ws/v3/${INFURA_PROJECT_ID}`;
+//  return custom || `wss://${network}.infura.io/ws/v3/${INFURA_PROJECT_ID}`;
+  return custom || `wss://rpc-mainnet.matic.quiknode.pro`;
 };
 
 const app: Record<SupportedChains, AppConfig> = {
@@ -39,8 +40,8 @@ const app: Record<SupportedChains, AppConfig> = {
     enableHistory: process.env.REACT_APP_ENABLE_HISTORY === 'true',
   },
   [ChainId.Polygon]: {
-    jsonRpcUri: createNetworkHttpUrl('polygon'),
-    wsRpcUri: createNetworkWsUrl('polygon'),
+    jsonRpcUri: createNetworkHttpUrl('polygon-mainnet'),
+    wsRpcUri: createNetworkWsUrl('polygon-mainnet'),
     subgraphApiUri: 'https://api.thegraph.com/subgraphs/name/nonamedao/noname-subgraph-beta',
     enableHistory: process.env.REACT_APP_ENABLE_HISTORY === 'true',
   },
