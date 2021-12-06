@@ -11,16 +11,16 @@ import {
 } from './cache';
 import { IAuctionLifecycleHandler } from './types';
 import { config } from './config';
-import { TwitterAuctionLifecycleHandler } from './handlers/twitter';
+//import { TwitterAuctionLifecycleHandler } from './handlers/twitter';
 import { DiscordAuctionLifecycleHandler } from './handlers/discord';
 
 /**
  * Create configured `IAuctionLifecycleHandler`s
  */
 const auctionLifecycleHandlers: IAuctionLifecycleHandler[] = [];
-if (config.twitterEnabled) {
+/*if (config.twitterEnabled && false) {
   auctionLifecycleHandlers.push(new TwitterAuctionLifecycleHandler());
-}
+}*/
 if (config.discordEnabled) {
   auctionLifecycleHandlers.push(
     new DiscordAuctionLifecycleHandler([internalDiscordWebhook, publicDiscordWebhook]),
