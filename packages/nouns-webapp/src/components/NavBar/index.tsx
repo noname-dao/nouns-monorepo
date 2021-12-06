@@ -96,7 +96,7 @@ const NavBar = () => {
           )}
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse className="justify-content-end">
-            {/* <Nav.Item>
+            <Nav.Item>
               {treasuryBalance && (
                 <Nav.Link
                   href={daoEtherscanLink}
@@ -115,10 +115,10 @@ const NavBar = () => {
                   {Number(utils.formatEther(treasuryBalance)).toFixed(0)}
                 </Nav.Link>
               )}
-            </Nav.Item> */}
-            {/* <Nav.Link as={Link} to="/vote" className={classes.nounsNavLink}>
+            </Nav.Item>
+            <Nav.Link as={Link} to="/vote" className={classes.nounsNavLink}>
               DAO
-            </Nav.Link> */}
+            </Nav.Link>
             <Nav.Link
               href={externalURL(ExternalURL.notion)}
               className={classes.nounsNavLink}
@@ -130,7 +130,7 @@ const NavBar = () => {
             <Nav.Link as={Link} to="/playground" className={classes.nounsNavLink}>
               PLAYGROUND
             </Nav.Link>
-            {/* {activeAccount ? connectedContent : disconnectedContent} */}
+            {activeAccount ? connectedContent : disconnectedContent}
           </Navbar.Collapse>
         </Container>
       </Navbar>
