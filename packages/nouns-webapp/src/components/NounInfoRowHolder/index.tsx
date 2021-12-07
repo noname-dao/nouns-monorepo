@@ -19,15 +19,15 @@ const NounInfoRowHolder: React.FC<NounInfoRowHolderProps> = props => {
 
   const { loading, error, data } = useQuery(nounQuery(nounId.toString()));
 
-  const etherscanURL = buildEtherscanAddressLink(data && data.noun.owner.id);
+  const etherscanURL = buildEtherscanAddressLink(data && data.noname.owner.id);
 
   if (loading) {
     return <p>Loading...</p>;
   } else if (error) {
-    return <div>Failed to fetch noun info</div>;
+    return <div>Failed to fetch noun info {error.toString()}</div>;
   }
 
-  const shortAddressComponent = <ShortAddress address={data && data.noun.owner.id} />;
+  const shortAddressComponent = <ShortAddress address={data && data.noname.owner.id} />;
 
   return (
     <div className={classes.nounHolderInfoContainer}>
@@ -42,7 +42,7 @@ const NounInfoRowHolder: React.FC<NounInfoRowHolderProps> = props => {
           target={'_blank'}
           rel="noreferrer"
         >
-          {data.noun.owner.id.toLowerCase() ===
+          {data.noname.owner.id.toLowerCase() ===
           config.addresses.nounsAuctionHouseProxy.toLowerCase()
             ? 'Nouns Auction House'
             : shortAddressComponent}

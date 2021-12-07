@@ -32,7 +32,7 @@ const VerifyPage: React.FC<VerifyPageProp> = props => {
         ),
       R.map((noun: any) => Number(noun.id)),
       R.sort((a: number, b: number) => a - b),
-    )(nounsIndex.nouns);
+    )(nounsIndex.nonames);
 
   const loadingContent = () => <div className={classes.loadingContent}>loading your Nouns...</div>;
 

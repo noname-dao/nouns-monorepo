@@ -24,7 +24,7 @@ const ProfilePage: React.FC<ProfilePageProps> = props => {
   let stateBgColor = useAppSelector(state => state.application.stateBackgroundColor);
 
   const loadedNounHandler = (seed: INounSeed) => {
-    dispatch(setStateBackgroundColor(seed.background === 0 ? grey : beige));
+    dispatch(setStateBackgroundColor(grey));
   };
 
   if (!lastAuctionNounId) {
@@ -53,7 +53,7 @@ const ProfilePage: React.FC<ProfilePageProps> = props => {
           </Row>
         </Container>
       </div>
-      <ProfileActivityFeed nounId={nounIdForDisplay} />
+      {/* <ProfileActivityFeed nounId={nounIdForDisplay} /> */}
     </>
   );
 };

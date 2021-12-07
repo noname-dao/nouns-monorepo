@@ -24,6 +24,11 @@ export const buildEtherscanAddressLink = (address: string): string => {
   return new URL(path, BASE_URL).toString();
 };
 
+export const buildEtherscanTokenLink = (address: string): string => {
+  const path = `token/${address}`;
+  return new URL(path, BASE_URL).toString();
+};
+
 const getApiBaseURL = (network: ChainId) => {
   switch (network) {
     case ChainId.Rinkeby:

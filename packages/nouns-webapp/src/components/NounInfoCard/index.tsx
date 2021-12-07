@@ -13,7 +13,7 @@ import { useHistory } from 'react-router';
 import { useAppSelector } from '../../hooks';
 
 import config from '../../config';
-import { buildEtherscanAddressLink } from '../../utils/etherscan';
+import { buildEtherscanTokenLink } from '../../utils/etherscan';
 import { setOnDisplayAuctionNounId } from '../../state/slices/onDisplayAuction';
 import { useDispatch } from 'react-redux';
 
@@ -26,13 +26,13 @@ const NounInfoCard: React.FC<NounInfoCardProps> = props => {
   const history = useHistory();
   const dispatch = useDispatch();
 
-  const etherscanBaseURL = buildEtherscanAddressLink(config.addresses.nounsToken);
+  const etherscanBaseURL = buildEtherscanTokenLink(config.addresses.nounsToken);
   const bidHistoryButtonClickHandler = () => {
     dispatch(setOnDisplayAuctionNounId(nounId));
     history.push(`/auction/${nounId}`);
   };
   // eslint-disable-next-line no-restricted-globals
-  const etherscanButtonClickHandler = () => (location.href = `${etherscanBaseURL}/${nounId}`);
+  const etherscanButtonClickHandler = () => (location.href = `${etherscanBaseURL}?a=${nounId}`);
 
   const lastAuctionNounId = useAppSelector(state => state.onDisplayAuction.lastAuctionNounId);
 
@@ -58,7 +58,7 @@ const NounInfoCard: React.FC<NounInfoCardProps> = props => {
         />
         <NounInfoRowButton
           iconImgSource={_AddressIcon}
-          btnText={'Etherscan'}
+          btnText={'Polygonscan'}
           onClickHandler={etherscanButtonClickHandler}
         />
       </Col>

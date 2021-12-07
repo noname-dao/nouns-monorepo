@@ -56,7 +56,7 @@ const NounderNounContent: React.FC<{
           >
             <div className={auctionActivityClasses.section}>
               <h4>Winner</h4>
-              <h2>nounders.eth</h2>
+              <h2>nonamedao.wallet</h2>
             </div>
           </Col>
         </Row>
@@ -65,21 +65,21 @@ const NounderNounContent: React.FC<{
         <Col lg={12}>
           <ul className={auctionBidClasses.bidCollection}>
             <li className={`${auctionBidClasses.bidRow} ${nounContentClasses.bidRow}`}>
-              All Noun auction proceeds are sent to the{' '}
+              All Noname auction proceeds are sent to the{' '}
               <Link to="/vote" className={nounContentClasses.link}>
                 Noname DAO
               </Link>
               . For this reason, we, the project's founders have chosen to compensate
-              ourselves with Nouns. Every 10th Noun for the first 5 years of the project will be
-              sent to our multisig (5/10), where it will be vested and distributed to individual
+              ourselves with Nonames. Every 10th Noun for the first 5 years of the project will be
+              sent to our multisig (3/5), where it will be vested and distributed to individual
               Founders.
             </li>
           </ul>
-          <div className={bidBtnClasses.bidHistoryWrapper}>
+          {/*<div className={bidBtnClasses.bidHistoryWrapper}>
             <Link to="/nounders" className={bidBtnClasses.bidHistory}>
               Learn More →
             </Link>
-          </div>
+          </div> */}
         </Col>
       </Row>
     </AuctionActivityWrapper>

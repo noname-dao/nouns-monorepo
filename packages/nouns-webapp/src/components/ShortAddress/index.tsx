@@ -7,23 +7,23 @@ const ShortAddress: React.FC<{ address: string; avatar?: boolean }> = props => {
   const { address, avatar } = props;
   const { library: provider } = useEthers();
 
-  const ens = useReverseENSLookUp(address);
-  const shortAddress = address && [address.substr(0, 4), address.substr(38, 4)].join('...');
+  // const ens = useReverseENSLookUp(address);
+  const shortAddress = address && [address.substr(0, 4), address.substr(38, 4)].join('...') || '0x00..0000';
 
   if (avatar) {
     return (
       <div className={classes.shortAddress}>
-        {avatar && (
+        {(address && avatar) && (
           <div key={address}>
             <Davatar size={24} address={address} provider={provider} />
           </div>
         )}
-        {ens ? ens : shortAddress}
+        {shortAddress}
       </div>
     );
   }
 
-  return <>{ens ? ens : shortAddress}</>;
+  return <>{shortAddress}</>;
 };
 
 export default ShortAddress;

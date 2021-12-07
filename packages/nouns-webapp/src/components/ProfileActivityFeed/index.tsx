@@ -34,11 +34,11 @@ const ProfileActivityFeed: React.FC<ProfileActivityFeedProps> = props => {
     return <div>Failed to fetch noun activity history</div>;
   }
 
-  const proposalsVotedOn = data.noun.votes
+  const proposalsVotedOn = data.noname.votes
     .slice(0)
     .map((h: NounVoteHistory, i: number) => h.proposal.id);
 
-  const supportedProposals = data.noun.votes
+  const supportedProposals = data.noname.votes
     .slice(0)
     .filter((h: NounVoteHistory, i: number) => h.support)
     .map((h: NounVoteHistory, i: number) => h.proposal.id);

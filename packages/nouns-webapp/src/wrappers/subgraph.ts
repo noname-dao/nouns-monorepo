@@ -11,7 +11,7 @@ export interface IBid {
   blockNumber: number;
   blockTimestamp: number;
   txIndex?: number;
-  noun: {
+  noname: {
     id: number;
     startTime?: BigNumberish;
     endTime?: BigNumberish;
@@ -37,8 +37,8 @@ export const auctionQuery = (auctionId: number) => gql`
 		  background
 		  body
 		  accessory
-		  head
-		  glasses
+		  face
+		  tail
 		}
 		owner {
 		  id
@@ -74,14 +74,14 @@ export const bidsByAuctionQuery = (auctionId: string) => gql`
 
 export const nounQuery = (id: string) => gql`
  {
-	noun(id:"${id}") {
+	noname(id:"${id}") {
 	  id
 	  seed {
 	  background
 		body
 		accessory
-		head
-		glasses
+        face
+		tail
 	}
 	  owner {
 		id
@@ -92,7 +92,7 @@ export const nounQuery = (id: string) => gql`
 
 export const nounsIndex = () => gql`
   {
-    nouns {
+    nonames {
       id
       owner {
         id
@@ -154,12 +154,12 @@ export const latestBidsQuery = (first: number = 10) => gql`
 		settled
 	  }
 	}
-  }  
+  }
 `;
 
 export const nounVotingHistoryQuery = (nounId: number) => gql`
 {
-	noun(id: ${nounId}) {
+	noname(id: ${nounId}) {
 		id
 		votes {
 		proposal {
