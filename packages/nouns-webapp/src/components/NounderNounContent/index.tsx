@@ -11,6 +11,7 @@ import auctionBidClasses from '../AuctionActivity/BidHistory.module.css';
 import bidBtnClasses from '../BidHistoryBtn//BidHistoryBtn.module.css';
 import auctionActivityClasses from '../AuctionActivity/AuctionActivity.module.css';
 import CurrentBid, { BID_N_A } from '../CurrentBid';
+import { buildEtherscanAddressLink } from '../../utils/etherscan';
 
 const NounderNounContent: React.FC<{
   mintTimestamp: BigNumber;
@@ -56,7 +57,7 @@ const NounderNounContent: React.FC<{
           >
             <div className={auctionActivityClasses.section}>
               <h4>Winner</h4>
-              <h2>nonamedao.wallet</h2>
+              <h3><a href={buildEtherscanAddressLink('0x762DC6d785714e08a754aC972D51338f8d57d886')} target="_blank">Founders Vault</a></h3>
             </div>
           </Col>
         </Row>
