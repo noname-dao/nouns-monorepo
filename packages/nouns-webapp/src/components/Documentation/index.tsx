@@ -57,14 +57,13 @@ const Documentation = () => {
                 <li>Noname's NFT are generated on-chain, 1 NFT once a day, forever. No NFT is preliminary created, though it can be predicted looking at previous block hash.</li>
                 <li>Every NFT is auctioned trustlessly, 100% of the funds received go to the Noname Treasury.</li>
                 <li>Every 10th NFT until N=1825 (~5 years) goes to Noname's Founders Vault as a compensation (multisig contract controlled by founders); Founders can't transfer their NFT until Noname #430 is received.</li>
-                <li>Every Nonamer can make a proposal to spend some money from the treasury. NFTs are locked until voting ends. A well-written and motivating proposal has more chances to be successfully settled. Voting starts 3 days after proposal submission and lasts for 4 more days.</li>
+                <li>Every Nonamer can make a proposal to spend some money from the treasury. NFTs are locked until voting ends. A well-written and motivating proposal has more chances to be successfully settled. Voting starts 2 days after proposal submission and lasts for 4 more days.</li>
                 <li>The more Nonames you have, the more reward you can claim on the treasury reward distribution.</li>
                 <li>Number of NFTs required for creating a proposal and for quorum is set with BPS (%) from the current token supply (BPS is defined in DAO).</li>
                 <li>Any participant can vote for or against any proposal during its voting window, locking theirs NFT (1 NFT for 1 vote).</li>
                 <li>Noname's Founders Vault can veto any proposal until it's executed.</li>
-                <li>Besides text description, proposal contains specific instructions to perform by DAO smart contract: call method, pass arguments, etc, i.e. transfer 20000 USDT to 0xabc123…</li>
+                <li>Besides text description, proposal contains specific instructions to perform by DAO smart contract: call method, pass arguments, etc, i.e. transfer 20000 MATIC to 0xaBc123…89</li>
                 <li>Once settled, proposal is executed if more participants voted for it or just closes otherwise. All locked NFTs by that proposal are unlocked then.</li>
-                <li>DAO smart contract has a method to secure a community reward. Every NFT is considered as a pool share here. After the successful call, Nonamers can claim their reward from the DAO.</li>
               </ul>
             </Accordion.Body>
           </Accordion.Item>
