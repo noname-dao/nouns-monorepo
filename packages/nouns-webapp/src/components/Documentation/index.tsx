@@ -17,6 +17,13 @@ const Documentation = () => {
   const compoundGovLink = (
     <Link text="Compound Governance" url="https://compound.finance/governance" leavesPage={true} />
   );
+  const nounsLink = (
+    <Link text="Nouns" url="https://nouns.wtf" leavesPage={true} />
+  )
+  const nounsProtocolLink = (
+    <Link text="Nouns Protocol" url="https://github.com/nounsDAO/nouns-monorepo/" leavesPage={true} />
+  )
+
   return (
     <Section fullWidth={false}>
       <Col lg={{ span: 10, offset: 1 }}>
@@ -32,8 +39,7 @@ const Documentation = () => {
             Mission of Noname DAO is to fund awesome projects that people really need in the crypto area through collective voting using a collective treasury.
           </p>
           <p>
-            Learn more about on-chain nonames below, or make some off-chain nonames using{' '}
-            {playgroundLink}.
+            Noname DAO is heavily inspired by {nounsLink} and built on top of the customized {nounsProtocolLink} on Polygon network.
           </p>
         </div>
         <Accordion flush>
