@@ -4,6 +4,7 @@ import classes from './Documentation.module.css';
 import Accordion from 'react-bootstrap/Accordion';
 import Link from '../Link';
 import { CURRENCY_SYMBOL, INITIAL_DEFAULT_PRICE } from '../../config';
+import { ImageData } from "@nouns/assets";
 
 const Documentation = () => {
   const playgroundLink = <Link text="nonames playground" url="/playground" leavesPage={false} />;
@@ -23,6 +24,14 @@ const Documentation = () => {
   const nounsProtocolLink = (
     <Link text="Nouns Protocol" url="https://github.com/nounsDAO/nouns-monorepo/" leavesPage={true} />
   )
+
+  const traitTitles = ['background', 'body', 'accessory', 'face', 'tail'];
+  const traitNames = [
+    ...Object.values(ImageData.images).map(i => {
+      return i.map(imageData => imageData.filename);
+    }),
+  ];
+  const traits = traitTitles.map((value, index) => (<li>{value} ({traitNames[index].length})</li>))
 
   return (
     <Section fullWidth={false}>
@@ -135,11 +144,7 @@ const Documentation = () => {
               writing, nonames are made up of:
               </p>
               <ul>
-                <li>backgrounds (2) </li>
-                <li>bodies (30)</li>
-                <li>accessories (137) </li>
-                <li>faces (234) </li>
-                <li>tails (21)</li>
+                {traits}
               </ul>
               You can experiment with off-chain noname generation at the {playgroundLink}.
             </Accordion.Body>
