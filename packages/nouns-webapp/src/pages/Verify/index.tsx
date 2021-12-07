@@ -42,7 +42,7 @@ const VerifyPage: React.FC<VerifyPageProp> = props => {
       [
         activeAccount ? `I am ${activeAccount}` : undefined,
         nouns.length > 0
-          ? ` and I own Noun${nouns.length > 1 ? 's' : ''} ${nouns.join(', ')}`
+          ? ` and I own Noname${nouns.length > 1 ? 's' : ''} ${nouns.join(', ')}`
           : undefined,
       ]
         .filter((part: string | undefined) => part)
