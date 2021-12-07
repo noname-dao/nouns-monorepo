@@ -6,6 +6,7 @@ import { useMemo } from 'react';
 import { useLogs } from '../hooks/useLogs';
 import * as R from 'ramda';
 import config from '../config';
+import { CURRENCY_SYMBOL } from '../config';
 
 export enum Vote {
   AGAINST = 0,
@@ -161,7 +162,7 @@ const useFormattedProposalCreatedLogs = () => {
             return {
               target,
               functionSig: name === '' ? 'transfer' : name === undefined ? 'unknown' : name,
-              callData: types ? types : value ? `${utils.formatEther(value)} ETH` : '',
+              callData: types ? types : value ? `${utils.formatEther(value)} ${CURRENCY_SYMBOL}` : '',
             };
           }
           const calldata = parsed.calldatas[i];

@@ -103,7 +103,7 @@ export const nounsIndex = () => gql`
 
 export const latestAuctionsQuery = () => gql`
   {
-    auctions(orderBy: startTime, orderDirection: desc) {
+    auctions(orderBy: startTime, orderDirection: desc, first: 1000) {
       id
       amount
       settled
@@ -166,6 +166,7 @@ export const nounVotingHistoryQuery = (nounId: number) => gql`
 			id
 		}
 		support
+        supportDetailed
 		}
 	}
 }

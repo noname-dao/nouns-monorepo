@@ -13,7 +13,7 @@ const GovernancePage = () => {
         <h1 className={classes.heading}>Noname DAO Governance</h1>
         <p className={classes.subheading}>
           Nonames govern Noname DAO. Nonamers can vote on proposals or delegate their vote to a third
-          party. A minimum threshold of 1% of the total Noname supply is required to submit proposals.
+          party. A minimum threshold of 5% of the total Noname supply is required to submit proposals.
         </p>
         <Proposals proposals={proposals} />
       </Col>

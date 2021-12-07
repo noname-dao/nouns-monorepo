@@ -7,6 +7,9 @@ import { setStateBackgroundColor } from '../../state/slices/application';
 import { grey, beige } from '../../utils/nounBgColors';
 import { INounSeed } from '../../wrappers/nounToken';
 
+import { useQuery } from '@apollo/client';
+import { nounQuery } from '../../wrappers/subgraph';
+
 import classes from './Profile.module.css';
 
 import NounInfoCard from '../../components/NounInfoCard';
@@ -22,6 +25,11 @@ const ProfilePage: React.FC<ProfilePageProps> = props => {
   const dispatch = useAppDispatch();
   const lastAuctionNounId = useAppSelector(state => state.onDisplayAuction.lastAuctionNounId);
   let stateBgColor = useAppSelector(state => state.application.stateBackgroundColor);
+
+  const { loading, error, data } = useQuery(nounQuery(nonameId.toString()));
+
+  const hasOwner = data !== undefined && data.noname.owner.id !== '0x0000000000000000000000000000000000000000';
+
 
   const loadedNounHandler = (seed: INounSeed) => {
     dispatch(setStateBackgroundColor(grey));
@@ -53,7 +61,7 @@ const ProfilePage: React.FC<ProfilePageProps> = props => {
           </Row>
         </Container>
       </div>
-      {/* <ProfileActivityFeed nounId={nounIdForDisplay} /> */}
+      {hasOwner && <ProfileActivityFeed nounId={nounIdForDisplay} />}
     </>
   );
 };

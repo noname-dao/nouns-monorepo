@@ -17,9 +17,10 @@ interface ProposalInfo {
   id: number;
 }
 
-interface NounVoteHistory {
+export interface NounVoteHistory {
   proposal: ProposalInfo;
   support: boolean;
+  supportDetailed: number;
 }
 
 const ProfileActivityFeed: React.FC<ProfileActivityFeedProps> = props => {
@@ -34,13 +35,8 @@ const ProfileActivityFeed: React.FC<ProfileActivityFeedProps> = props => {
     return <div>Failed to fetch noun activity history</div>;
   }
 
-  const proposalsVotedOn = data.noname.votes
+  const nounVotes: { [key: string]: NounVoteHistory } = data.noname.votes
     .slice(0)
-    .map((h: NounVoteHistory, i: number) => h.proposal.id);
-
-  const supportedProposals = data.noname.votes
-    .slice(0)
-    .filter((h: NounVoteHistory, i: number) => h.support)
     .map((h: NounVoteHistory, i: number) => h.proposal.id);
 
   const latestProposalId = proposals?.length;
@@ -59,11 +55,11 @@ const ProfileActivityFeed: React.FC<ProfileActivityFeedProps> = props => {
                 .slice(0)
                 .reverse()
                 .map((p: Proposal, i: number) => {
+                  const vote = p.id ? nounVotes[p.id] : undefined;
                   return (
                     <NounProfileVoteRow
                       proposal={p}
-                      nounVoted={proposalsVotedOn.includes(p.id)}
-                      nounSupported={supportedProposals.includes(p.id)}
+                      vote={vote}
                       latestProposalId={latestProposalId}
                       nounId={nounId}
                       key={i}

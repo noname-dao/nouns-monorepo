@@ -11,7 +11,7 @@ const NotFoundPage = () => {
       </Col>
       <Col lg={8}>
         <h1 className={classes.heading}>
-          404: This is not the person, place, or thing you're looking for...
+          404: Dao that can be named is not the eternal Dao itself
         </h1>
       </Col>
     </Section>
