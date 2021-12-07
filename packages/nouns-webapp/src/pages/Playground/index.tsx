@@ -15,7 +15,7 @@ interface Trait {
 const nounsProtocolLink = (
   <Link
     text="Nouns Protocol for Nonames"
-    url="https://nonamedao.com"
+    url="https://github.com/nounsDAO/nouns-monorepo/"
     leavesPage={true}
   />
 );
