@@ -36,6 +36,10 @@ const nounsSDKLink = (
   />
 );
 
+const twitterLink = (
+  <Link text="@Vectorpixelstar" url="https://twitter.com/Vectorpixelstar" leavesPage={true} />
+);
+
 const parseTraitName = (partName: string): string =>
   capitalizeFirstLetter(partName.substring(partName.indexOf('-') + 1));
 
@@ -128,7 +132,7 @@ const Playground: React.FC = () => {
             <p>
               The playground was built using the {nounsProtocolLink}. Noname's traits are determined
               by the Noname Seed. The seed was generated using {nounsAssetsLink} and rendered using
-              the {nounsSDKLink}.
+              the {nounsSDKLink}. All the artwork was brought to life by glorious {twitterLink}.
             </p>
           </Col>
         </Row>
