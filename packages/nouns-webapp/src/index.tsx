@@ -99,7 +99,7 @@ const Updaters = () => {
   );
 };
 
-const BLOCKS_PER_DAY = 6_500;
+const BLOCKS_PER_DAY = 43_200;
 
 const ChainSubscriber: React.FC = () => {
   const dispatch = useAppDispatch();
