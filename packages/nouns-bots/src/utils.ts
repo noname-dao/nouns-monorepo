@@ -24,10 +24,10 @@ export async function resolveEnsOrFormatAddress(address: string) {
  * @returns Text to be used in tweet when auction starts.
  */
 export function formatAuctionStartedTweetText(auctionId: number) {
-  return `＊Bleep Bloop Blop＊
-        
- An auction has started for Noun #${auctionId}
- Learn more at https://nouns.wtf`;
+  return `＊Pssst＊
+
+ An auction has started for Noname #${auctionId}
+ Learn more at https://nonamedao.com`;
 }
 
 /**
@@ -38,7 +38,7 @@ export function formatAuctionStartedTweetText(auctionId: number) {
  */
 export async function formatBidMessageText(id: number, bid: Bid) {
   const bidder = await resolveEnsOrFormatAddress(bid.bidder.id);
-  return `Noun ${id} has received a bid of Ξ${ethers.utils.formatEther(bid.amount)} from ${bidder}`;
+  return `Noname ${id} has received a bid of ${ethers.utils.formatEther(bid.amount)} MATIC from ${bidder}`;
 }
 
 /**
@@ -46,7 +46,7 @@ export async function formatBidMessageText(id: number, bid: Bid) {
  * @returns The auction ending soon text
  */
 export function getAuctionEndingSoonTweetText() {
-  return `This auction is ending soon! Bid now at https://nouns.wtf`;
+  return `This auction is ending soon! Bid now at https://nonamedao.com`;
 }
 
 /**
