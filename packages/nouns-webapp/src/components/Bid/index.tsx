@@ -94,7 +94,9 @@ const Bid: React.FC<{
       return;
     }
 
-    if (currentBid(bidInputRef).isLessThan(minBid)) {
+    const INITIAL_PRICE = new BigNumber(utils.parseEther(INITIAL_DEFAULT_PRICE.toString()).toString());
+
+    if (currentBid(bidInputRef).isLessThan(minBid) || currentBid(bidInputRef).isLessThan(INITIAL_PRICE)) {
       setModal({
         show: true,
         title: 'Insufficient bid amount 🤏',
@@ -233,7 +235,7 @@ const Bid: React.FC<{
       )}
       <InputGroup>
         {!auctionEnded && (
-          <> 
+          <>
             <FormControl
               aria-label="Example text with button addon"
               aria-describedby="basic-addon1"
