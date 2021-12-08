@@ -4,7 +4,7 @@ task('restart-auction', 'Mints a Noun')
   .addOptionalParam(
     'nounsToken',
     'The `NounsToken` contract address',
-    '0x92BB7Ab272027B6831E0B3cc85eA674059E24D1c',
+    '0xf0d4e7461104fC76D0b8496F7840f8c3886a0AE6',
     types.string,
   )
   .setAction(async ({ nounsToken }, { ethers }) => {

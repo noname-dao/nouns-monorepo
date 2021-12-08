@@ -41,7 +41,7 @@ const app: Record<SupportedChains, AppConfig> = {
   [ChainId.Polygon]: {
     jsonRpcUri: createNetworkHttpUrl('polygon'),
     wsRpcUri: createNetworkWsUrl('polygon'),
-    subgraphApiUri: 'https://api.thegraph.com/subgraphs/name/noname-dao/noname-subgraph',
+    subgraphApiUri: 'https://api.thegraph.com/subgraphs/name/noname-dao/noname-subgraph-main',
     enableHistory: false,
   },
   [ChainId.Mainnet]: {
