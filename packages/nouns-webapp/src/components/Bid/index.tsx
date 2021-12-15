@@ -3,6 +3,7 @@ import { connectContractToSigner, useEthers, useContractFunction } from '@usedap
 import { useAppSelector } from '../../hooks';
 import React, { useEffect, useState, useRef, ChangeEvent, useCallback } from 'react';
 import { utils, BigNumber as EthersBN } from 'ethers';
+import { BigNumberish } from '@ethersproject/bignumber';
 import BigNumber from 'bignumber.js';
 import classes from './Bid.module.css';
 import { Spinner, InputGroup, FormControl, Button } from 'react-bootstrap';
@@ -11,6 +12,12 @@ import { useAppDispatch } from '../../hooks';
 import { AlertModal, setAlertModal } from '../../state/slices/application';
 import { NounsAuctionHouseFactory } from '@nouns/sdk';
 import config, { CURRENCY_SYMBOL, INITIAL_DEFAULT_PRICE } from '../../config';
+import { useQuery } from '@apollo/client';
+import { latestAuctionWinBids } from '../../wrappers/subgraph';
+
+interface AuctionBid {
+    amount: string;
+}
 
 const computeMinimumNextBid = (
   currentBid: BigNumber,
@@ -21,12 +28,24 @@ const computeMinimumNextBid = (
     : currentBid.times(minBidIncPercentage.plus(10).div(100).plus(1));
 };
 
-const minBidEth = (minBid: BigNumber): string => {
-  if (minBid.isZero()) {
+const minBidEth = (minBid: BigNumber, def: BigNumber): string => {
+  if (minBid.isZero() && def.isZero()) {
     return INITIAL_DEFAULT_PRICE.toString();
   }
 
-  const eth = Number(utils.formatEther(EthersBN.from(minBid.toString())));
+  let _minBid: BigNumber;
+
+  if (minBid.isZero() && !def.isZero()) {
+    _minBid = def;
+  } else {
+    _minBid = minBid;
+  }
+
+  if (!minBid.isZero()) {
+    _minBid = minBid;
+  }
+
+  const eth = Number(utils.formatEther(EthersBN.from(_minBid.toString())));
   const roundedEth = Math.ceil(eth * 100) / 100;
 
   return roundedEth.toString();
@@ -63,6 +82,31 @@ const Bid: React.FC<{
   const dispatch = useAppDispatch();
   const setModal = useCallback((modal: AlertModal) => dispatch(setAlertModal(modal)), [dispatch]);
 
+  const DAYS = 7;
+  const ZERO = new BigNumber(0);
+  const STEP = new BigNumber("0.14");
+  let TOTAL_WEIGHT = ZERO;
+
+  for (let i=1; i <= DAYS; i++) {
+      TOTAL_WEIGHT = TOTAL_WEIGHT.plus(STEP.times(new BigNumber(i)));
+  };
+
+  const { data: lastBids, loading, error } = useQuery(latestAuctionWinBids(DAYS));
+  let weightedMinBid = ZERO;
+
+  if (!loading) {
+      if (error) {
+        console.log(error.toString());
+      }
+
+      weightedMinBid = lastBids.auctions
+                .map((x: AuctionBid) => new BigNumber(x.amount))
+                .reduce((acc: BigNumber, x: BigNumber, idx: number) => (new BigNumber(DAYS-idx)).times(STEP).times(x).plus(acc), ZERO)
+                .div(TOTAL_WEIGHT);
+
+      weightedMinBid = new BigNumber(weightedMinBid.toFixed(0));
+  }
+
   const minBidIncPercentage = useAuctionMinBidIncPercentage();
   const minBid = computeMinimumNextBid(
     auction && new BigNumber(auction.amount.toString()),
@@ -94,17 +138,17 @@ const Bid: React.FC<{
       return;
     }
 
-    const INITIAL_PRICE = new BigNumber(utils.parseEther(INITIAL_DEFAULT_PRICE.toString()).toString());
+    const INITIAL_PRICE = !weightedMinBid.isZero() ? weightedMinBid : new BigNumber(utils.parseEther(INITIAL_DEFAULT_PRICE.toString()).toString());
 
-    if (currentBid(bidInputRef).isLessThan(minBid) || currentBid(bidInputRef).isLessThan(INITIAL_PRICE)) {
+    if (currentBid(bidInputRef).isLessThan(minBid) || (minBid.isZero() && currentBid(bidInputRef).isLessThan(INITIAL_PRICE))) {
       setModal({
         show: true,
         title: 'Insufficient bid amount 🤏',
         message: `Please place a bid higher than or equal to the minimum bid amount of ${minBidEth(
-          minBid,
+          minBid, weightedMinBid
         )} ${CURRENCY_SYMBOL}.`,
       });
-      setBidInput(minBidEth(minBid));
+      setBidInput(minBidEth(minBid, weightedMinBid));
       return;
     }
 
@@ -231,7 +275,7 @@ const Bid: React.FC<{
   return (
     <>
       {!auctionEnded && (
-        <p className={classes.minBidCopy}>{`Minimum bid: ${minBidEth(minBid)} ${CURRENCY_SYMBOL}`}</p>
+        <p className={classes.minBidCopy}>{`Minimum bid: ${minBidEth(minBid, weightedMinBid)} ${CURRENCY_SYMBOL}`}</p>
       )}
       <InputGroup>
         {!auctionEnded && (

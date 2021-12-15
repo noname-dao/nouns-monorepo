@@ -11,7 +11,7 @@ interface AppConfig {
 
 export const CURRENCY_SYMBOL = "MATIC";
 export const CURRENCY_LOGO = maticLogo;
-export const INITIAL_DEFAULT_PRICE = 50;
+export const INITIAL_DEFAULT_PRICE = 150;
 
 type SupportedChains = ChainId.Rinkeby | ChainId.Mainnet | ChainId.Polygon | ChainId.Hardhat;
 
@@ -42,7 +42,7 @@ const app: Record<SupportedChains, AppConfig> = {
     jsonRpcUri: createNetworkHttpUrl('polygon'),
     wsRpcUri: createNetworkWsUrl('polygon'),
     subgraphApiUri: 'https://api.thegraph.com/subgraphs/name/noname-dao/noname-subgraph-main',
-    enableHistory: false,
+    enableHistory: true,
   },
   [ChainId.Mainnet]: {
     jsonRpcUri: createNetworkHttpUrl('mainnet'),
