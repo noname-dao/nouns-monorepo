@@ -61,7 +61,7 @@ const ProfilePage: React.FC<ProfilePageProps> = props => {
           </Row>
         </Container>
       </div>
-      {hasOwner && <ProfileActivityFeed nounId={nounIdForDisplay} />}
+      {/* {hasOwner && <ProfileActivityFeed nounId={nounIdForDisplay} />} */}
     </>
   );
 };

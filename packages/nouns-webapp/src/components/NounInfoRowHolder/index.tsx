@@ -44,7 +44,7 @@ const NounInfoRowHolder: React.FC<NounInfoRowHolderProps> = props => {
         >
           {data.noname.owner.id.toLowerCase() ===
           config.addresses.nounsAuctionHouseProxy.toLowerCase()
-            ? 'Nouns Auction House'
+            ? 'Noname Auction House'
             : shortAddressComponent}
         </a>
       </span>

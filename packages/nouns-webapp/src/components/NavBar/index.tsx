@@ -23,6 +23,7 @@ const NavBar = () => {
   const history = useHistory();
   const treasuryBalance = useEtherBalance(config.addresses.nounsDaoExecutor);
   const daoEtherscanLink = buildEtherscanAddressLink(config.addresses.nounsDaoExecutor);
+  const balance = useEtherBalance(activeAccount);
 
   const [showConnectModal, setShowConnectModal] = useState(false);
 
@@ -38,7 +39,18 @@ const NavBar = () => {
       <Nav.Item>
         <Nav.Link className={clsx(classes.nounsNavLink, classes.addressNavLink)} disabled>
           <span className={classes.greenStatusCircle} />
-          <span>{activeAccount && <ShortAddress address={activeAccount} avatar={true} />}</span>
+          <span>{activeAccount && <ShortAddress address={activeAccount} avatar={true} />} </span>
+          {balance !== undefined && <>
+                  <img
+                    src={CURRENCY_LOGO}
+                    width="14"
+                    height="14"
+                    style={{marginBottom: "2px", marginRight: "3px"}}
+                    className="d-inline-block ms-2 align-middle"
+                    alt={`${CURRENCY_SYMBOL} logo`} />
+                  <span>{Math.floor(Number(utils.formatEther(balance))).toFixed(0)}</span>
+              </>
+          }
         </Nav.Link>
       </Nav.Item>
       <Nav.Item>
