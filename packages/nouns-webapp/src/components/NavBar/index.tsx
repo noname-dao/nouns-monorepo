@@ -12,7 +12,7 @@ import testnetNoun from '../../assets/testnet-noun.png';
 import clsx from 'clsx';
 import config, { CHAIN_ID, CURRENCY_LOGO, CURRENCY_SYMBOL } from '../../config';
 import { utils } from 'ethers';
-import { buildEtherscanAddressLink } from '../../utils/etherscan';
+import { buildEtherscanHoldingsLink } from '../../utils/etherscan';
 import { ExternalURL, externalURL } from '../../utils/externalURL';
 
 const NavBar = () => {
@@ -22,7 +22,7 @@ const NavBar = () => {
   const stateBgColor = useAppSelector(state => state.application.stateBackgroundColor);
   const history = useHistory();
   const treasuryBalance = useEtherBalance(config.addresses.nounsDaoExecutor);
-  const daoEtherscanLink = buildEtherscanAddressLink(config.addresses.nounsDaoExecutor);
+  const daoEtherscanLink = buildEtherscanHoldingsLink(config.addresses.nounsDaoExecutor);
   const balance = useEtherBalance(activeAccount);
 
   const [showConnectModal, setShowConnectModal] = useState(false);
