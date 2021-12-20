@@ -1,10 +1,14 @@
 # nouns-monorepo
 
-Nouns DAO is a generative avatar art collective run by a group of crypto misfits.
 
-## Contributing
+Noname DAO is an experimental community that aims to build a new method of investors and founders collaboration. Nonamers can share and propose their knowledge of profitable investment options which the whole community can profit from using its large accumulated funds once DAO decides to approve it.
 
-If you're interested in contributing to Nouns DAO repos we're excited to have you. Please discuss any changes in `#developers` in [discord.gg/nouns](https://discord.gg/nouns) prior to contributing to reduce duplication of effort and in case there is any prior art that may be useful to you.
+It's the ultimate membership powered by a community of blockchain founders, investors, and experts bound together by shared values and shared incentives.
+
+Mission of Noname DAO is to fund awesome projects that people really need in the crypto area through collective voting using a collective treasury.
+
+Noname DAO is heavily inspired by [Nouns](https://nouns.wtf) and built on top of the customized [Nouns Protocol](https://github.com/nounsDAO/nouns-monorepo) on Polygon network.
+
 
 ## Packages
 
