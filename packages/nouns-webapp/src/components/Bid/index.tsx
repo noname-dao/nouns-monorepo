@@ -85,6 +85,8 @@ const Bid: React.FC<{
   const DAYS = 7;
   const ZERO = new BigNumber(0);
   const STEP = new BigNumber("0.14");
+  const MULT = new BigNumber("0.5");
+
   let TOTAL_WEIGHT = ZERO;
 
   for (let i=1; i <= DAYS; i++) {
@@ -102,7 +104,7 @@ const Bid: React.FC<{
       weightedMinBid = lastBids.auctions
                 .map((x: AuctionBid) => new BigNumber(x.amount))
                 .reduce((acc: BigNumber, x: BigNumber, idx: number) => (new BigNumber(DAYS-idx)).times(STEP).times(x).plus(acc), ZERO)
-                .div(TOTAL_WEIGHT);
+                .div(TOTAL_WEIGHT).times(MULT);
 
       weightedMinBid = new BigNumber(weightedMinBid.toFixed(0));
   }
