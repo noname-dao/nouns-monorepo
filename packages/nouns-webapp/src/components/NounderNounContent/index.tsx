@@ -71,7 +71,7 @@ const NounderNounContent: React.FC<{
                 Noname DAO
               </Link>
               . For this reason, we, the project's founders have chosen to compensate
-              ourselves with Nonames. Every 10th Noun for the first 5 years of the project will be
+              ourselves with Nonames. Every 10th Noname for the first 5 years of the project will be
               sent to our multisig (3/5), where it will be vested and distributed to individual
               Founders.
             </li>
